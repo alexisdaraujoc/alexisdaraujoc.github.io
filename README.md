@@ -1,4 +1,4 @@
-# 🛰️ Alexis D'Araujo | Geospatial & AgTech Portfolio
+# 🛰️ Alexis D. Araujo C.| Geospatial & AgTech Portfolio
 
 Welcome to the source repository for my professional blog and portfolio, hosted at [alexisdaraujoc.github.io](https://alexisdaraujoc.github.io).
 
