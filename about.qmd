@@ -1,6 +1,6 @@
 ---
 title: "About Me"
-image: images/profile.jpg # Optional: Add your photo to an 'images' folder
+image: images/profile.jpg
 about:
   template: jolla
   links:
@@ -14,6 +14,8 @@ about:
 
 ## Alexis Araujo
 **Agricultural Engineer | Geospatial Data Scientist | AgTech Automator**
+
+::: {style="text-align: left; max-width: 800px; margin: 0 auto;"}
 
 I am a results-driven **Agricultural Engineer** with over a decade of experience in field operations and digital agriculture. My mission is to bridge the gap between traditional agronomy and modern data science by leveraging **Python**, **QGIS**, and **Geospatial Analysis** to optimize decision-making in the field.
 
@@ -32,5 +34,7 @@ I am a results-driven **Agricultural Engineer** with over a decade of experience
 
 * **Agricultural Engineering**
 * **Python for Everybody Specialization** – University of Michigan (Coursera)
+
+:::
 
 ---
