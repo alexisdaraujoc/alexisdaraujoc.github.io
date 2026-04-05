@@ -1,0 +1,11 @@
+---
+title: "Portafolio de Análisis Geoespacial"
+author: "Alexis"
+---
+
+## Proyecto: Optimización de Silos
+
+Bienvenidos a mi blog técnico. Aquí presento los resultados del análisis de infraestructura agrícola:
+
+* [Ver Dashboard Interactivo de Silos](dashboard_silos_interactivos.html)
+* [Análisis Detallado (Notebook)](dia1_points_proyecto_silos.html)

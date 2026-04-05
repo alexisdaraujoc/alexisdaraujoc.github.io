@@ -1,0 +1,27 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Alexis | Análisis Geoespacial"
+  description: "Portafolio de automatización de datos agrícolas y mapas interactivos."
+  navbar:
+    background: primary
+    left:
+      - href: index.qmd
+        text: Inicio
+      - text: "Proyectos"
+        menu:
+          - href: dashboard_silos_interactivos.html
+            text: "Dashboard de Silos"
+
+format:
+  html:
+    theme:
+      light: cosmo
+      dark: darkly
+    toc: true
+    number-sections: true
+
+execute:
+  freeze: auto
