@@ -9,10 +9,10 @@ I am **Alexis Araujo**, an Agricultural Engineer specializing in geospatial anal
 
 ### Featured Projects
 
-* **[Silo Network Analysis](30daymapchallenge/dia1_points_silos/dia1_points_proyecto_silos.ipynb)**
+* **[Silo Network Analysis](30daymapchallenge/dia1_points_silos/dia1_points_proyecto_silos.html)**
     A spatial study on grain storage distribution and capacity.
     
-* **[30 Day Map Challenge]**
+* **[30 Day Map Challenge](https://github.com/alexisdaraujoc/alexisdaraujoc.github.io)**
     A series of geospatial visualizations focusing on agricultural dynamics.
 
 ---
