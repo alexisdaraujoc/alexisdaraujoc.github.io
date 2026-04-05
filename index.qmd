@@ -1,11 +1,19 @@
 ---
-title: "Portafolio de Análisis Geoespacial"
-author: "Alexis"
+title: "Agricultural Engineering & Geospatial Data"
+subtitle: "Harnessing Python for AgTech Solutions"
 ---
 
-## Proyecto: Optimización de Silos
+## Professional Profile
 
-Bienvenidos a mi blog técnico. Aquí presento los resultados del análisis de infraestructura agrícola:
+I am **Alexis Araujo**, an Agricultural Engineer specializing in geospatial analysis and data automation. This portfolio showcases my work in optimizing agricultural infrastructure and logistics.
 
-* [Ver Dashboard Interactivo de Silos](dashboard_silos_interactivos.html)
-* [Análisis Detallado (Notebook)](dia1_points_proyecto_silos.html)
+### Featured Projects
+
+* **[Silo Network Analysis](30daymapchallenge/dia_1_points_silos/dia1_points_proyecto_silos.html)**
+    A spatial study on grain storage distribution and capacity.
+    
+* **[30 Day Map Challenge]**
+    A series of geospatial visualizations focusing on agricultural dynamics.
+
+---
+*Contact: www.linkedin.com/in/alexisdaraujoc*
