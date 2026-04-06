@@ -9,7 +9,7 @@ I am **Alexis Araujo**, an Agricultural Engineer specializing in geospatial anal
 
 ### Featured Projects
 
-* **[Grain Storage Network Optimization](day1_points_silos/day1_points_silos.html)**
+* **[Grain Storage Network Optimization](day1_points_silos/day1_points_silos.ipynb)**
     A spatial study on grain storage distribution and capacity.
     
 * **[30 Day Map Challenge](https://github.com/alexisdaraujoc/alexisdaraujoc.github.io)**
