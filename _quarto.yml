@@ -13,9 +13,11 @@ website:
         text: "Home"
       - text: "Projects"
         menu:
-          # Aquí vinculamos tu carpeta real 30daymapchallenge
-          - text: "Silo Infrastructure (Day 1)"
-            href: 30daymapchallenge/dia1_points_silos/dia1_points_proyecto_silos.ipynb
+          # Ruta corregida para coincidir con tu estructura de carpetas actual
+          - text: "Silo Infrastructure"
+            href: 30daymapchallenge/day1_points_silos/day1_points_silos.ipynb
+          - text: "Agro-Logistics"
+            href: 30daymapchallenge/dia2_lines/agrologistica.ipynb
       - href: about.qmd
         text: "About Me"
 
@@ -24,3 +26,6 @@ format:
     theme: darkly
     toc: true
     lang: en
+
+execute:
+  freeze: auto
