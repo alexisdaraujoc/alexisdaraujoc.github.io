@@ -1,0 +1,1793 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Alexis D. Araujo C.">
+<meta name="dcterms.date" content="2026-04-06">
+
+<title>Agro-Logistics Dynamics: Multi-Commodity Flow Analysis – Alexis Araujo | Portfolio</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-89e418bdf74ace262a60e983fea03c0d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Alexis Araujo | Portfolio</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-projects" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Projects</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-projects">    
+        <li>
+    <a class="dropdown-item" href="../../30daymapchallenge/day1_points_silos/day1_points_silos.html">
+ <span class="dropdown-text">Grain Storage Network Optimization</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../30daymapchallenge/day2_lines_antpath/day2_lines_antpath.html">
+ <span class="dropdown-text">Agro-Logistics Dynamics</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About Me</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#project-overview-logistics-connectivity" id="toc-project-overview-logistics-connectivity" class="nav-link active" data-scroll-target="#project-overview-logistics-connectivity"><span class="header-section-number">1</span> 1. Project Overview: Logistics Connectivity</a>
+  <ul class="collapse">
+  <li><a href="#problem-statement" id="toc-problem-statement" class="nav-link" data-scroll-target="#problem-statement"><span class="header-section-number">1.1</span> 1.1 Problem Statement</a></li>
+  <li><a href="#technical-objectives" id="toc-technical-objectives" class="nav-link" data-scroll-target="#technical-objectives"><span class="header-section-number">1.2</span> 1.2 Technical Objectives</a></li>
+  <li><a href="#technical-architecture" id="toc-technical-architecture" class="nav-link" data-scroll-target="#technical-architecture"><span class="header-section-number">1.3</span> 1.3 Technical Architecture</a></li>
+  </ul></li>
+  <li><a href="#network-acquisition-and-topology-cleaning" id="toc-network-acquisition-and-topology-cleaning" class="nav-link" data-scroll-target="#network-acquisition-and-topology-cleaning"><span class="header-section-number">2</span> 2. Network Acquisition and Topology Cleaning</a>
+  <ul class="collapse">
+  <li><a href="#graph-extraction-and-connectivity-audit" id="toc-graph-extraction-and-connectivity-audit" class="nav-link" data-scroll-target="#graph-extraction-and-connectivity-audit"><span class="header-section-number">2.1</span> 2.1 Graph Extraction and Connectivity Audit</a></li>
+  </ul></li>
+  <li><a href="#supply-node-configuration-farm-to-plant-logistics" id="toc-supply-node-configuration-farm-to-plant-logistics" class="nav-link" data-scroll-target="#supply-node-configuration-farm-to-plant-logistics"><span class="header-section-number">3</span> 3. Supply Node Configuration: Farm-to-Plant Logistics</a>
+  <ul class="collapse">
+  <li><a href="#commodity-segmentation" id="toc-commodity-segmentation" class="nav-link" data-scroll-target="#commodity-segmentation"><span class="header-section-number">3.1</span> 3.1 Commodity Segmentation</a></li>
+  </ul></li>
+  <li><a href="#initialize-map-high-contrast-dark-mode-for-vector-clarity" id="toc-initialize-map-high-contrast-dark-mode-for-vector-clarity" class="nav-link" data-scroll-target="#initialize-map-high-contrast-dark-mode-for-vector-clarity"><span class="header-section-number">4</span> 4. Initialize Map (High-Contrast Dark Mode for Vector Clarity)</a></li>
+  <li><a href="#routing-engine-pathfinding-and-kinetic-mapping-antpath" id="toc-routing-engine-pathfinding-and-kinetic-mapping-antpath" class="nav-link" data-scroll-target="#routing-engine-pathfinding-and-kinetic-mapping-antpath"><span class="header-section-number">5</span> 5. Routing Engine: Pathfinding and Kinetic Mapping (AntPath)</a></li>
+  <li><a href="#logistical-infrastructure-and-control-interface" id="toc-logistical-infrastructure-and-control-interface" class="nav-link" data-scroll-target="#logistical-infrastructure-and-control-interface"><span class="header-section-number">6</span> 6. Logistical Infrastructure and Control Interface</a></li>
+  <li><a href="#strategic-findings-and-analytical-conclusions" id="toc-strategic-findings-and-analytical-conclusions" class="nav-link" data-scroll-target="#strategic-findings-and-analytical-conclusions"><span class="header-section-number">7</span> Strategic Findings and Analytical Conclusions</a>
+  <ul class="collapse">
+  <li><a href="#key-analytical-insights" id="toc-key-analytical-insights" class="nav-link" data-scroll-target="#key-analytical-insights"><span class="header-section-number">7.1</span> Key Analytical Insights</a></li>
+  <li><a href="#technical-summary" id="toc-technical-summary" class="nav-link" data-scroll-target="#technical-summary"><span class="header-section-number">7.2</span> Technical Summary</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Agro-Logistics Dynamics: Multi-Commodity Flow Analysis</h1>
+<p class="subtitle lead">Visualizing Supply Chain Connectivity and Transit Flows</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">Logistics</div>
+    <div class="quarto-category">Python</div>
+    <div class="quarto-category">GIS</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Alexis D. Araujo C. </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">April 6, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="project-overview-logistics-connectivity" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="project-overview-logistics-connectivity"><span class="header-section-number">1</span> 1. Project Overview: Logistics Connectivity</h2>
+<p>In modern agriculture, the transition from harvest to processing is a race against time and cost. This project focuses on the <strong>spatial representation of agricultural flow</strong>, mapping the transit corridors of three critical commodities: <strong>Maize, Soybeans, and Wheat</strong>.</p>
+<p>By utilizing dynamic vector paths, we can visualize the connectivity between production hubs and export terminals, providing a clear picture of regional logistics integration.</p>
+<section id="problem-statement" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="problem-statement"><span class="header-section-number">1.1</span> 1.1 Problem Statement</h3>
+<p>Fragmented logistics data often hides the complexity of multi-commodity transport. Understanding the “path of least resistance” and the overlap of different crop routes is essential for: * <strong>Infrastructure Planning:</strong> Identifying high-traffic corridors that require maintenance. * <strong>Cost Mitigation:</strong> Optimizing haulage distances to reduce fuel consumption. * <strong>Risk Assessment:</strong> Visualizing dependency on specific transit bottlenecks.</p>
+</section>
+<section id="technical-objectives" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="technical-objectives"><span class="header-section-number">1.2</span> 1.2 Technical Objectives</h3>
+<p>This analysis implements advanced line-string visualization techniques: * <strong>Dynamic Flow Mapping (AntPath):</strong> Using animated polylines to indicate the direction and “pulse” of commodity movement. * <strong>Multivariate Color Coding:</strong> Assigning specific hues to different crops to analyze route overlap and specialization. * <strong>Spatial Intersection:</strong> Understanding how different supply chains converge at primary logistical nodes.</p>
+</section>
+<section id="technical-architecture" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="technical-architecture"><span class="header-section-number">1.3</span> 1.3 Technical Architecture</h3>
+<p>To ensure scalability and performance, the project utilizes the following stack:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Tool</th>
+<th style="text-align: left;">Core Function</th>
+<th style="text-align: left;">Application in Project</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>GeoPandas</strong></td>
+<td style="text-align: left;">Spatial Vector Engine</td>
+<td style="text-align: left;">Construction and manipulation of LineString geometries for transit routes.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Folium (AntPath)</strong></td>
+<td style="text-align: left;">Animation Engine</td>
+<td style="text-align: left;">Deployment of non-static, animated polylines to represent flow direction.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Branca</strong></td>
+<td style="text-align: left;">HTML/CSS Styling</td>
+<td style="text-align: left;">Advanced customization of interactive legends and dashboard components.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+</section>
+<section id="network-acquisition-and-topology-cleaning" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="network-acquisition-and-topology-cleaning"><span class="header-section-number">2</span> 2. Network Acquisition and Topology Cleaning</h2>
+<p>In this stage, we utilize <strong>OSMNX</strong> to download the real-world road infrastructure from OpenStreetMap. A critical step in supply chain modeling is ensuring <strong>network connectivity</strong>; otherwise, routing algorithms would fail due to isolated road segments.</p>
+<section id="graph-extraction-and-connectivity-audit" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="graph-extraction-and-connectivity-audit"><span class="header-section-number">2.1</span> 2.1 Graph Extraction and Connectivity Audit</h3>
+<p>We extract a driving network centered on a strategic agricultural hub. To ensure a valid model, we perform a <strong>Connected Components</strong> analysis to retain only the largest interconnected subgraph, eliminating any “dead-end” segments that aren’t physically linked to the main infrastructure.</p>
+<div id="f88661f5-72f5-41b4-a377-0cc8172b5bd6" class="cell" data-execution_count="1">
+<details class="code-fold">
+<summary>Review Technical Code (Python)</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> osmnx <span class="im">as</span> ox</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> folium</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> folium.plugins <span class="im">import</span> AntPath</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Geographic Configuration (Agricultural Core Region)</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Centered near a strategic logistical node</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>center_coords <span class="op">=</span> (<span class="op">-</span><span class="fl">33.89</span>, <span class="op">-</span><span class="fl">60.57</span>) </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Downloading road infrastructure from OpenStreetMap..."</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Network Retrieval and Topology Refinement</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Downloads the road network within a 20km radius</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>G_raw <span class="op">=</span> ox.graph_from_point(center_coords, dist<span class="op">=</span><span class="dv">20000</span>, network_type<span class="op">=</span><span class="st">'drive'</span>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Ensuring Graph Connectivity</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># We convert to undirected to find connected components and extract the </span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Largest Strongly Connected Component (LSCC) to ensure routing feasibility.</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>G_weak <span class="op">=</span> G_raw.to_undirected()</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>largest_component <span class="op">=</span> <span class="bu">max</span>(nx.connected_components(G_weak), key<span class="op">=</span><span class="bu">len</span>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> G_raw.subgraph(largest_component).copy()</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Critical Node Identification</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Locating the nearest network node to our primary processing facility (Plant)</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>target_plant_node <span class="op">=</span> ox.nearest_nodes(G, center_coords[<span class="dv">1</span>], center_coords[<span class="dv">0</span>])</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Network processing complete. Total nodes in analyzed subgraph: </span><span class="sc">{</span><span class="bu">len</span>(G.nodes)<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Downloading road infrastructure from OpenStreetMap...
+Network processing complete. Total nodes in analyzed subgraph: 4350</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="supply-node-configuration-farm-to-plant-logistics" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="supply-node-configuration-farm-to-plant-logistics"><span class="header-section-number">3</span> 3. Supply Node Configuration: Farm-to-Plant Logistics</h2>
+<p>In this section, we define the <strong>Source Nodes</strong> (Farms) that represent the origin of the agricultural supply chain. Each node is characterized by its geographic coordinates, current storage volume in metric tons (MT), and the specific commodity being transported.</p>
+<section id="commodity-segmentation" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="commodity-segmentation"><span class="header-section-number">3.1</span> 3.1 Commodity Segmentation</h3>
+<p>To visualize the multi-product flow, we categorized the supply into three strategic pillars: * <strong>Maize (Yellow):</strong> High-volume grain transport. * <strong>Soybeans (Green):</strong> Critical oilseed export commodity. * <strong>Wheat (Orange):</strong> Essential cereal for regional milling.</p>
+<div id="703ffecc-b4d8-4b28-8429-374fe6d64a9c" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Review Technical Code (Python)</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Production Node Dataset (Off-road Origins)</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># This dataset represents the supply nodes for the multi-commodity logistics model.</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">NOTE</span><span class="co">: Farm names (Spanish) are preserved for regional context.</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>farms_data <span class="op">=</span> [</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"name"</span>: <span class="st">"Finca El Sol"</span>, <span class="st">"coords"</span>: (<span class="op">-</span><span class="fl">33.80</span>, <span class="op">-</span><span class="fl">60.48</span>), <span class="st">"ton"</span>: <span class="dv">80</span>, <span class="st">"commodity"</span>: <span class="st">"Maize"</span>, <span class="st">"color"</span>: <span class="st">"#f1c40f"</span>},</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"name"</span>: <span class="st">"Don Pedro"</span>, <span class="st">"coords"</span>: (<span class="op">-</span><span class="fl">33.97</span>, <span class="op">-</span><span class="fl">60.42</span>), <span class="st">"ton"</span>: <span class="dv">40</span>, <span class="st">"commodity"</span>: <span class="st">"Soybeans"</span>, <span class="st">"color"</span>: <span class="st">"#2ecc71"</span>},</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"name"</span>: <span class="st">"La Posta"</span>, <span class="st">"coords"</span>: (<span class="op">-</span><span class="fl">33.83</span>, <span class="op">-</span><span class="fl">60.78</span>), <span class="st">"ton"</span>: <span class="dv">120</span>, <span class="st">"commodity"</span>: <span class="st">"Wheat"</span>, <span class="st">"color"</span>: <span class="st">"#e67e22"</span>},</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"name"</span>: <span class="st">"El Trébol"</span>, <span class="st">"coords"</span>: (<span class="op">-</span><span class="fl">34.05</span>, <span class="op">-</span><span class="fl">60.58</span>), <span class="st">"ton"</span>: <span class="dv">65</span>, <span class="st">"commodity"</span>: <span class="st">"Maize"</span>, <span class="st">"color"</span>: <span class="st">"#f1c40f"</span>},</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"name"</span>: <span class="st">"Santa Rita"</span>, <span class="st">"coords"</span>: (<span class="op">-</span><span class="fl">33.75</span>, <span class="op">-</span><span class="fl">60.68</span>), <span class="st">"ton"</span>: <span class="dv">90</span>, <span class="st">"commodity"</span>: <span class="st">"Soybeans"</span>, <span class="st">"color"</span>: <span class="st">"#2ecc71"</span>},</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"name"</span>: <span class="st">"Campo Largo"</span>, <span class="st">"coords"</span>: (<span class="op">-</span><span class="fl">33.88</span>, <span class="op">-</span><span class="fl">60.85</span>), <span class="st">"ton"</span>: <span class="dv">110</span>, <span class="st">"commodity"</span>: <span class="st">"Wheat"</span>, <span class="st">"color"</span>: <span class="st">"#e67e22"</span>},</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"name"</span>: <span class="st">"Las Lilas"</span>, <span class="st">"coords"</span>: (<span class="op">-</span><span class="fl">34.08</span>, <span class="op">-</span><span class="fl">60.38</span>), <span class="st">"ton"</span>: <span class="dv">35</span>, <span class="st">"commodity"</span>: <span class="st">"Maize"</span>, <span class="st">"color"</span>: <span class="st">"#f1c40f"</span>},</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"name"</span>: <span class="st">"El Amanecer"</span>, <span class="st">"coords"</span>: (<span class="op">-</span><span class="fl">33.72</span>, <span class="op">-</span><span class="fl">60.55</span>), <span class="st">"ton"</span>: <span class="dv">55</span>, <span class="st">"commodity"</span>: <span class="st">"Soybeans"</span>, <span class="st">"color"</span>: <span class="st">"#2ecc71"</span>}</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Successfully initialized </span><span class="sc">{</span><span class="bu">len</span>(farms_data)<span class="sc">}</span><span class="ss"> supply nodes across 3 commodity categories."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Successfully initialized 8 supply nodes across 3 commodity categories.</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="initialize-map-high-contrast-dark-mode-for-vector-clarity" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="initialize-map-high-contrast-dark-mode-for-vector-clarity"><span class="header-section-number">4</span> 4. Initialize Map (High-Contrast Dark Mode for Vector Clarity)</h2>
+<div id="01a2616b-1841-4810-93e1-eb72e0ec59fd" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Review Technical Code (Python)</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> folium.Map(location<span class="op">=</span>center_coords, zoom_start<span class="op">=</span><span class="dv">11</span>, tiles<span class="op">=</span><span class="st">"cartodb dark_matter"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Custom Dashboard Header (Floating UI)</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>header_html <span class="op">=</span> <span class="st">'''</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="st">    &lt;div style="position: fixed; top: 15px; left: 50%; transform: translateX(-50%); z-index:9999; </span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="st">                background-color: rgba(0,0,0,0.7); color: white; padding: 10px 25px; </span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="st">                border-radius: 20px; border: 1px solid #555; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"&gt;</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="st">        &lt;h3 style="margin:0; font-size:18px;"&gt;&lt;b&gt;AGRO-LOGISTICS: HARVEST FLOW ANALYSIS&lt;/b&gt;&lt;/h3&gt;</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="st">    &lt;/div&gt;</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="st">    '''</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>m.get_root().html.add_child(folium.Element(header_html))</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Dynamic Footer (Metadata &amp; Attribution)</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>footer_html <span class="op">=</span> <span class="st">'''</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="st">    &lt;div style="position: fixed; bottom: 15px; left: 50%; transform: translateX(-50%); z-index:9999; </span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="st">                color: #888; font-size: 9px; font-family: 'Arial'; letter-spacing: 1px;"&gt;</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="st">        Author: @alexisdaraujoc | Data: OpenStreetMap | © 2026</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="st">    &lt;/div&gt;</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="st">    '''</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>m.get_root().html.add_child(folium.Element(footer_html))</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Layer Groups by Commodity Type</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>commodity_layers <span class="op">=</span> {</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Maize"</span>: folium.FeatureGroup(name<span class="op">=</span><span class="st">'&lt;span style="color:#f1c40f"&gt;●&lt;/span&gt; Maize'</span>).add_to(m),</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Soybeans"</span>: folium.FeatureGroup(name<span class="op">=</span><span class="st">'&lt;span style="color:#2ecc71"&gt;●&lt;/span&gt; Soybeans'</span>).add_to(m),</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Wheat"</span>: folium.FeatureGroup(name<span class="op">=</span><span class="st">'&lt;span style="color:#e67e22"&gt;●&lt;/span&gt; Wheat'</span>).add_to(m)</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</section>
+<section id="routing-engine-pathfinding-and-kinetic-mapping-antpath" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="routing-engine-pathfinding-and-kinetic-mapping-antpath"><span class="header-section-number">5</span> 5. Routing Engine: Pathfinding and Kinetic Mapping (AntPath)</h2>
+<p>Calculating Dijkstra’s shortest path between Farm Nodes and the Central Plant.</p>
+<div id="b7e47f0b-2f07-4509-861f-f8f96d9652c7" class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>Review Technical Code (Python)</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Calculating Dijkstra's shortest path between Farm Nodes and the Central Plant.</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> farm <span class="kw">in</span> farms_data:</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Snap farm coordinates to the nearest network node</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>        farm_node <span class="op">=</span> ox.nearest_nodes(G, farm[<span class="st">"coords"</span>][<span class="dv">1</span>], farm[<span class="st">"coords"</span>][<span class="dv">0</span>])</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Calculate optimal route based on distance (length)</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        optimal_path <span class="op">=</span> nx.shortest_path(G, farm_node, target_plant_node, weight<span class="op">=</span><span class="st">'length'</span>)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Generate geometry coordinates: [Origin] -&gt; [Road Segments]</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        route_geometry <span class="op">=</span> [<span class="bu">list</span>(farm[<span class="st">"coords"</span>])] <span class="op">+</span> [[G.nodes[node][<span class="st">'y'</span>], G.nodes[node][<span class="st">'x'</span>]] <span class="cf">for</span> node <span class="kw">in</span> optimal_path]</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Deploy Animated Polyline (Weight proportional to Load Capacity)</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>        AntPath(</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>            locations<span class="op">=</span>route_geometry,</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>            color<span class="op">=</span>farm[<span class="st">"color"</span>],</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>            pulse_color<span class="op">=</span><span class="st">'#ffffff'</span>,</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>            weight<span class="op">=</span>farm[<span class="st">"ton"</span>]<span class="op">/</span><span class="dv">8</span>,  <span class="co"># Dynamic line weight based on cargo volume</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>            delay<span class="op">=</span><span class="dv">1100</span>,</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>            tooltip<span class="op">=</span><span class="ss">f"&lt;b&gt;</span><span class="sc">{</span>farm[<span class="st">'name'</span>]<span class="sc">}</span><span class="ss">&lt;/b&gt;&lt;br&gt;Commodity: </span><span class="sc">{</span>farm[<span class="st">'commodity'</span>]<span class="sc">}</span><span class="ss">&lt;br&gt;Load: </span><span class="sc">{</span>farm[<span class="st">'ton'</span>]<span class="sc">}</span><span class="ss"> MT"</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>        ).add_to(commodity_layers[farm[<span class="st">"commodity"</span>]])</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Source Marker (Origin Point)</span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>        folium.Marker(</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>            location<span class="op">=</span>farm[<span class="st">"coords"</span>],</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>            icon<span class="op">=</span>folium.Icon(color<span class="op">=</span><span class="st">'black'</span>, icon_color<span class="op">=</span>farm[<span class="st">"color"</span>], icon<span class="op">=</span><span class="st">'leaf'</span>, prefix<span class="op">=</span><span class="st">'fa'</span>),</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>            popup<span class="op">=</span>farm[<span class="st">"name"</span>]</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>        ).add_to(commodity_layers[farm[<span class="st">"commodity"</span>]])</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Error processing route for </span><span class="sc">{</span>farm[<span class="st">'name'</span>]<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>        <span class="cf">continue</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Error processing route for Don Pedro: No path between 4052042735 and 8039791631.</code></pre>
+</div>
+</div>
+</section>
+<section id="logistical-infrastructure-and-control-interface" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="logistical-infrastructure-and-control-interface"><span class="header-section-number">6</span> 6. Logistical Infrastructure and Control Interface</h2>
+<div id="7255b754-5980-4571-a38e-b9591b25726a" class="cell" data-scrolled="true" data-execution_count="6">
+<details class="code-fold">
+<summary>Review Technical Code (Python)</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 6. Final Integration, Vertical Resize and Forced Export</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> branca.element <span class="im">import</span> Figure</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 6.1 UI Sizing (800px vertical expansion)</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> Figure(height<span class="op">=</span><span class="dv">800</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 6.2 Cleanup: Removing duplicate LayerControls before final render</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> key <span class="kw">in</span> <span class="bu">list</span>(m._children.keys()):</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="st">'layer_control'</span> <span class="kw">in</span> key:</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>        <span class="kw">del</span> m._children[key]</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 6.3 Destination Node: Central Processing Plant</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>folium.Marker(</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    location<span class="op">=</span>center_coords,</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    icon<span class="op">=</span>folium.Icon(color<span class="op">=</span><span class="st">'red'</span>, icon<span class="op">=</span><span class="st">'industry'</span>, prefix<span class="op">=</span><span class="st">'fa'</span>),</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>    popup<span class="op">=</span><span class="st">"CENTRAL PROCESSING PLANT"</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>).add_to(m)</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="co"># 6.4 Single Instance Layer Control</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>folium.LayerControl(collapsed<span class="op">=</span><span class="va">False</span>).add_to(m)</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="co"># 6.5 Encapsulation</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>fig.add_child(m)</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="co"># 6.6 FORCED EXPORT SYSTEM</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="co"># We define the absolute path to avoid Windows permission issues</span></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>filename <span class="op">=</span> <span class="st">"day2_lines_antpath.html"</span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>current_dir <span class="op">=</span> os.getcwd()</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>full_path <span class="op">=</span> os.path.join(current_dir, filename)</span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Force save</span></span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>    m.save(full_path)</span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 6.7 Verification Check</span></span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> os.path.exists(full_path):</span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"✅ SUCCESS: File generated at: </span><span class="sc">{</span>full_path<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"📦 File size: </span><span class="sc">{</span>os<span class="sc">.</span>path<span class="sc">.</span>getsize(full_path) <span class="op">/</span> <span class="dv">1024</span><span class="sc">:.2f}</span><span class="ss"> KB"</span>)</span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"❌ ERROR: The file was not found after the save command."</span>)</span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"❌ CRITICAL ERROR during save: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a><span class="co"># 6.8 Final Render for Notebook</span></span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a>fig</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>✅ SUCCESS: File generated at: C:\Users\Usuario\Documents\raiz_del_blog\30daymapchallenge\day2_lines_antpath\day2_lines_antpath.html
+📦 File size: 34.16 KB</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<iframe srcdoc="<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot; />
+    <script src=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js&quot;></script>
+    <script src=&quot;https://code.jquery.com/jquery-3.7.1.min.js&quot;></script>
+    <script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js&quot;></script>
+    <script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js&quot;></script>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css&quot;/>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css&quot;/>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css&quot;/>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css&quot;/>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css&quot;/>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css&quot;/>
+    
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; />
+            <style>
+                #map_5bff325d529057b402469d69f488ed63 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src=&quot;https://cdn.jsdelivr.net/npm/leaflet-ant-path@1.1.2/dist/leaflet-ant-path.min.js&quot;></script>
+</head>
+<body>
+    
+    
+            <div class=&quot;folium-map&quot; id=&quot;map_5bff325d529057b402469d69f488ed63&quot; ></div>
+        
+</body>
+<script>
+    
+    
+            var map_5bff325d529057b402469d69f488ed63 = L.map(
+                &quot;map_5bff325d529057b402469d69f488ed63&quot;,
+                {
+                    center: [-33.89, -60.57],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  &quot;zoom&quot;: 11,
+  &quot;zoomControl&quot;: true,
+  &quot;preferCanvas&quot;: false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_7630a72a17ccc0a372bd82cd273d5d4b = L.tileLayer(
+                &quot;https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png&quot;,
+                {
+  &quot;minZoom&quot;: 0,
+  &quot;maxZoom&quot;: 20,
+  &quot;maxNativeZoom&quot;: 20,
+  &quot;noWrap&quot;: false,
+  &quot;attribution&quot;: &quot;\u0026copy; \u003ca href=\&quot;https://www.openstreetmap.org/copyright\&quot;\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\&quot;https://carto.com/attributions\&quot;\u003eCARTO\u003c/a\u003e&quot;,
+  &quot;subdomains&quot;: &quot;abcd&quot;,
+  &quot;detectRetina&quot;: false,
+  &quot;tms&quot;: false,
+  &quot;opacity&quot;: 1,
+}
+
+            );
+        
+    
+            tile_layer_7630a72a17ccc0a372bd82cd273d5d4b.addTo(map_5bff325d529057b402469d69f488ed63);
+        
+    
+            var feature_group_32be4f6f240e35d0c55d6258606b109d = L.featureGroup(
+                {
+}
+            );
+        
+    
+            ant_path_5b0d85aeba15e53e36e91792b56a0fbe = L.polyline.antPath(
+              [[-33.8, -60.48], [-33.7976426, -60.4683526], [-33.8279353, -60.4854995], [-33.828755, -60.4859536], [-33.8295161, -60.4863704], [-33.8302875, -60.4867988], [-33.8310505, -60.4872274], [-33.8318283, -60.4876574], [-33.8325884, -60.4880845], [-33.833352, -60.4885128], [-33.8340578, -60.4888882], [-33.8340931, -60.490071], [-33.8467485, -60.5132238], [-33.8427393, -60.5184118], [-33.846232, -60.5222717], [-33.8496594, -60.5259743], [-33.8530488, -60.5297459], [-33.8564398, -60.5334891], [-33.8599236, -60.5373188], [-33.8633805, -60.5411013], [-33.8668033, -60.5448705], [-33.8702034, -60.5486246], [-33.8734975, -60.5522229], [-33.8737459, -60.5524927], [-33.8757339, -60.5546868], [-33.8762314, -60.5552416], [-33.8764281, -60.5554556], [-33.8771536, -60.5562632], [-33.8767596, -60.5567934], [-33.8771717, -60.5569915], [-33.8779575, -60.5573634], [-33.8787883, -60.557767], [-33.8793642, -60.5580427], [-33.880143, -60.5584131], [-33.880993, -60.5588254], [-33.8818626, -60.5592463], [-33.8827372, -60.5596706], [-33.8836397, -60.5601031], [-33.8845075, -60.5605257], [-33.8841504, -60.5615984], [-33.8850429, -60.5620323], [-33.8846405, -60.5632351], [-33.8843112, -60.5642254], [-33.883978, -60.565225], [-33.8836506, -60.5662152], [-33.8844824, -60.566618], [-33.8852769, -60.5670062], [-33.8860687, -60.5674101], [-33.8868371, -60.5677898], [-33.8876176, -60.5681661], [-33.8883904, -60.5685402], [-33.8880673, -60.5695274], [-33.8888171, -60.5698407], [-33.889108, -60.5699772], [-33.8896154, -60.5703013], [-33.8897018, -60.5703409], [-33.8897509, -60.5701904]],
+              {
+  &quot;stroke&quot;: true,
+  &quot;color&quot;: &quot;#f1c40f&quot;,
+  &quot;weight&quot;: 10.0,
+  &quot;opacity&quot;: 0.5,
+  &quot;lineCap&quot;: &quot;round&quot;,
+  &quot;lineJoin&quot;: &quot;round&quot;,
+  &quot;dashArray&quot;: [
+10,
+20,
+],
+  &quot;dashOffset&quot;: null,
+  &quot;fill&quot;: false,
+  &quot;fillColor&quot;: &quot;#f1c40f&quot;,
+  &quot;fillOpacity&quot;: 0.2,
+  &quot;fillRule&quot;: &quot;evenodd&quot;,
+  &quot;bubblingMouseEvents&quot;: true,
+  &quot;smoothFactor&quot;: 1.0,
+  &quot;noClip&quot;: false,
+  &quot;paused&quot;: false,
+  &quot;reverse&quot;: false,
+  &quot;hardwareAcceleration&quot;: false,
+  &quot;delay&quot;: 1100,
+  &quot;pulseColor&quot;: &quot;#ffffff&quot;,
+}
+        ).addTo(feature_group_32be4f6f240e35d0c55d6258606b109d);
+        
+    
+            ant_path_5b0d85aeba15e53e36e91792b56a0fbe.bindTooltip(
+                `<div>
+                     <b>Finca El Sol</b><br>Commodity: Maize<br>Load: 80 MT
+                 </div>`,
+                {
+  &quot;sticky&quot;: true,
+}
+            );
+        
+    
+            var marker_c2dbd15fbe81e6c4324ce365316a0080 = L.marker(
+                [-33.8, -60.48],
+                {
+}
+            ).addTo(feature_group_32be4f6f240e35d0c55d6258606b109d);
+        
+    
+            var icon_a55b73b19d246018b5477df0af7fb04b = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;black&quot;,
+  &quot;iconColor&quot;: &quot;#f1c40f&quot;,
+  &quot;icon&quot;: &quot;leaf&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_47d553b6f9fa984f2ec0127b6205e679 = L.popup({
+  &quot;maxWidth&quot;: &quot;100%&quot;,
+});
+
+        
+            
+                var html_6f0ad4de99582faad20df06252ac95eb = $(`<div id=&quot;html_6f0ad4de99582faad20df06252ac95eb&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>Finca El Sol</div>`)[0];
+                popup_47d553b6f9fa984f2ec0127b6205e679.setContent(html_6f0ad4de99582faad20df06252ac95eb);
+            
+        
+
+        marker_c2dbd15fbe81e6c4324ce365316a0080.bindPopup(popup_47d553b6f9fa984f2ec0127b6205e679)
+        ;
+
+        
+    
+    
+                marker_c2dbd15fbe81e6c4324ce365316a0080.setIcon(icon_a55b73b19d246018b5477df0af7fb04b);
+            
+    
+                marker_c2dbd15fbe81e6c4324ce365316a0080.setIcon(icon_a55b73b19d246018b5477df0af7fb04b);
+            
+    
+                marker_c2dbd15fbe81e6c4324ce365316a0080.setIcon(icon_a55b73b19d246018b5477df0af7fb04b);
+            
+    
+            ant_path_b41d04f16dd68ee036e2b785733313aa = L.polyline.antPath(
+              [[-34.05, -60.58], [-34.049497, -60.5815753], [-34.0495005, -60.5819206], [-34.0353777, -60.633145], [-34.0201395, -60.6333142], [-34.0153551, -60.6333259], [-34.0127748, -60.6333518], [-34.0006646, -60.6334013], [-33.9990464, -60.6330784], [-33.9986889, -60.6329584], [-33.9975039, -60.6324391], [-33.9828183, -60.6235777], [-33.9519978, -60.6080935], [-33.9503039, -60.6072384], [-33.9480007, -60.6060461], [-33.9478372, -60.6059613], [-33.9473209, -60.605704], [-33.9449226, -60.6045125], [-33.9432753, -60.6036712], [-33.9427079, -60.6032227], [-33.9422751, -60.6032711], [-33.9419971, -60.6030406], [-33.9402028, -60.6016489], [-33.9399388, -60.6014497], [-33.9322857, -60.5968476], [-33.9322079, -60.5968074], [-33.9233027, -60.5913379], [-33.9222393, -60.5905002], [-33.9218589, -60.5902244], [-33.9208563, -60.5894758], [-33.9201852, -60.588953], [-33.9194576, -60.5883753], [-33.918815, -60.5878639], [-33.9178318, -60.5870637], [-33.9171368, -60.5865008], [-33.9163969, -60.5859033], [-33.9158205, -60.5854487], [-33.9146906, -60.5845233], [-33.9137356, -60.5837384], [-33.9136815, -60.5836105], [-33.9136004, -60.5836094], [-33.9135442, -60.5836804], [-33.9123161, -60.5831613], [-33.9112503, -60.5824845], [-33.9111045, -60.5824178], [-33.9101517, -60.5819707], [-33.9091935, -60.581534], [-33.9082389, -60.5810838], [-33.9072788, -60.5806457], [-33.9063257, -60.5801924], [-33.9053669, -60.5797474], [-33.9044136, -60.5793007], [-33.9034596, -60.5788591], [-33.9031659, -60.5787196], [-33.9022162, -60.5782185], [-33.9011225, -60.5776245], [-33.9003652, -60.5772105], [-33.9003257, -60.5771889], [-33.8993491, -60.5766546], [-33.8986307, -60.5762741], [-33.8977138, -60.5757657], [-33.8971613, -60.5754737], [-33.8962269, -60.5750253], [-33.8958958, -60.5748749], [-33.8943943, -60.5742682], [-33.8935536, -60.5739198], [-33.892625, -60.5735439], [-33.8915196, -60.5730901], [-33.8907454, -60.5727639], [-33.8900131, -60.5724557], [-33.8890924, -60.5720686], [-33.8893722, -60.5713263], [-33.8895518, -60.5707901], [-33.8897018, -60.5703409], [-33.8897509, -60.5701904]],
+              {
+  &quot;stroke&quot;: true,
+  &quot;color&quot;: &quot;#f1c40f&quot;,
+  &quot;weight&quot;: 8.125,
+  &quot;opacity&quot;: 0.5,
+  &quot;lineCap&quot;: &quot;round&quot;,
+  &quot;lineJoin&quot;: &quot;round&quot;,
+  &quot;dashArray&quot;: [
+10,
+20,
+],
+  &quot;dashOffset&quot;: null,
+  &quot;fill&quot;: false,
+  &quot;fillColor&quot;: &quot;#f1c40f&quot;,
+  &quot;fillOpacity&quot;: 0.2,
+  &quot;fillRule&quot;: &quot;evenodd&quot;,
+  &quot;bubblingMouseEvents&quot;: true,
+  &quot;smoothFactor&quot;: 1.0,
+  &quot;noClip&quot;: false,
+  &quot;paused&quot;: false,
+  &quot;reverse&quot;: false,
+  &quot;hardwareAcceleration&quot;: false,
+  &quot;delay&quot;: 1100,
+  &quot;pulseColor&quot;: &quot;#ffffff&quot;,
+}
+        ).addTo(feature_group_32be4f6f240e35d0c55d6258606b109d);
+        
+    
+            ant_path_b41d04f16dd68ee036e2b785733313aa.bindTooltip(
+                `<div>
+                     <b>El Trébol</b><br>Commodity: Maize<br>Load: 65 MT
+                 </div>`,
+                {
+  &quot;sticky&quot;: true,
+}
+            );
+        
+    
+            var marker_38057114be2f0b916e10f1053239ad97 = L.marker(
+                [-34.05, -60.58],
+                {
+}
+            ).addTo(feature_group_32be4f6f240e35d0c55d6258606b109d);
+        
+    
+            var icon_4191c3c8fc105e0f15772b1996ca2e8b = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;black&quot;,
+  &quot;iconColor&quot;: &quot;#f1c40f&quot;,
+  &quot;icon&quot;: &quot;leaf&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_abc002cb62aac3029b926ab077676ed7 = L.popup({
+  &quot;maxWidth&quot;: &quot;100%&quot;,
+});
+
+        
+            
+                var html_32319af13c599a4e77945d21843e6b8b = $(`<div id=&quot;html_32319af13c599a4e77945d21843e6b8b&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>El Trébol</div>`)[0];
+                popup_abc002cb62aac3029b926ab077676ed7.setContent(html_32319af13c599a4e77945d21843e6b8b);
+            
+        
+
+        marker_38057114be2f0b916e10f1053239ad97.bindPopup(popup_abc002cb62aac3029b926ab077676ed7)
+        ;
+
+        
+    
+    
+                marker_38057114be2f0b916e10f1053239ad97.setIcon(icon_4191c3c8fc105e0f15772b1996ca2e8b);
+            
+    
+                marker_38057114be2f0b916e10f1053239ad97.setIcon(icon_4191c3c8fc105e0f15772b1996ca2e8b);
+            
+    
+                marker_38057114be2f0b916e10f1053239ad97.setIcon(icon_4191c3c8fc105e0f15772b1996ca2e8b);
+            
+    
+            ant_path_1ae3259cae19b5ac0308408d3f30f4e4 = L.polyline.antPath(
+              [[-34.08, -60.38], [-34.0556967, -60.4153059], [-34.0379281, -60.4385697], [-34.0218029, -60.4695913], [-34.0085232, -60.4870208], [-33.998752, -60.499842], [-33.996973, -60.5020144], [-33.9949927, -60.5036629], [-33.9801394, -60.5141879], [-33.971081, -60.5253935], [-33.9655365, -60.5315208], [-33.9558872, -60.5421906], [-33.9348614, -60.5639888], [-33.9341301, -60.5645199], [-33.9339033, -60.5646699], [-33.9319643, -60.5656535], [-33.9317046, -60.565754], [-33.9310202, -60.5659818], [-33.9290849, -60.5664598], [-33.9280205, -60.5666539], [-33.9271522, -60.5668659], [-33.9257751, -60.5671921], [-33.9251668, -60.567379], [-33.9232932, -60.5678086], [-33.9217734, -60.5681125], [-33.9191336, -60.5686331], [-33.9180771, -60.5689748], [-33.9154919, -60.5698673], [-33.9152132, -60.5699693], [-33.9140168, -60.5704099], [-33.9135532, -60.5707769], [-33.9126825, -60.5706742], [-33.911573, -60.5707086], [-33.9104575, -60.570735], [-33.9093505, -60.5707956], [-33.908267, -60.5707868], [-33.9079786, -60.5707645], [-33.9076283, -60.5707655], [-33.9075363, -60.5707828], [-33.9051504, -60.5703834], [-33.9041131, -60.569991], [-33.9030958, -60.5694857], [-33.9023145, -60.569113], [-33.901922, -60.5689243], [-33.9015329, -60.5687348], [-33.901165, -60.568556], [-33.9007575, -60.5683541], [-33.9004071, -60.5681873], [-33.8999385, -60.5694572], [-33.8994244, -60.5692083], [-33.8980194, -60.5685205], [-33.896719, -60.5678492], [-33.8957214, -60.5673749], [-33.894805, -60.5669536], [-33.8937336, -60.5664564], [-33.8932971, -60.5677321], [-33.8929665, -60.5687191], [-33.8926327, -60.5696715], [-33.8918765, -60.5693497], [-33.891108, -60.5689946], [-33.8902487, -60.5685936], [-33.8899166, -60.5695845], [-33.8896661, -60.570151], [-33.8896154, -60.5703013], [-33.8897018, -60.5703409], [-33.8897509, -60.5701904]],
+              {
+  &quot;stroke&quot;: true,
+  &quot;color&quot;: &quot;#f1c40f&quot;,
+  &quot;weight&quot;: 4.375,
+  &quot;opacity&quot;: 0.5,
+  &quot;lineCap&quot;: &quot;round&quot;,
+  &quot;lineJoin&quot;: &quot;round&quot;,
+  &quot;dashArray&quot;: [
+10,
+20,
+],
+  &quot;dashOffset&quot;: null,
+  &quot;fill&quot;: false,
+  &quot;fillColor&quot;: &quot;#f1c40f&quot;,
+  &quot;fillOpacity&quot;: 0.2,
+  &quot;fillRule&quot;: &quot;evenodd&quot;,
+  &quot;bubblingMouseEvents&quot;: true,
+  &quot;smoothFactor&quot;: 1.0,
+  &quot;noClip&quot;: false,
+  &quot;paused&quot;: false,
+  &quot;reverse&quot;: false,
+  &quot;hardwareAcceleration&quot;: false,
+  &quot;delay&quot;: 1100,
+  &quot;pulseColor&quot;: &quot;#ffffff&quot;,
+}
+        ).addTo(feature_group_32be4f6f240e35d0c55d6258606b109d);
+        
+    
+            ant_path_1ae3259cae19b5ac0308408d3f30f4e4.bindTooltip(
+                `<div>
+                     <b>Las Lilas</b><br>Commodity: Maize<br>Load: 35 MT
+                 </div>`,
+                {
+  &quot;sticky&quot;: true,
+}
+            );
+        
+    
+            var marker_f5b61920ec160c8f8be6c3cbf81c64fb = L.marker(
+                [-34.08, -60.38],
+                {
+}
+            ).addTo(feature_group_32be4f6f240e35d0c55d6258606b109d);
+        
+    
+            var icon_49202dd74fa6777f31d5a52276d1495a = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;black&quot;,
+  &quot;iconColor&quot;: &quot;#f1c40f&quot;,
+  &quot;icon&quot;: &quot;leaf&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_1fdfcbc85efd9851419286e2cc0265a5 = L.popup({
+  &quot;maxWidth&quot;: &quot;100%&quot;,
+});
+
+        
+            
+                var html_254c5e72e4c7616ee353ecefcbf87222 = $(`<div id=&quot;html_254c5e72e4c7616ee353ecefcbf87222&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>Las Lilas</div>`)[0];
+                popup_1fdfcbc85efd9851419286e2cc0265a5.setContent(html_254c5e72e4c7616ee353ecefcbf87222);
+            
+        
+
+        marker_f5b61920ec160c8f8be6c3cbf81c64fb.bindPopup(popup_1fdfcbc85efd9851419286e2cc0265a5)
+        ;
+
+        
+    
+    
+                marker_f5b61920ec160c8f8be6c3cbf81c64fb.setIcon(icon_49202dd74fa6777f31d5a52276d1495a);
+            
+    
+                marker_f5b61920ec160c8f8be6c3cbf81c64fb.setIcon(icon_49202dd74fa6777f31d5a52276d1495a);
+            
+    
+                marker_f5b61920ec160c8f8be6c3cbf81c64fb.setIcon(icon_49202dd74fa6777f31d5a52276d1495a);
+            
+    
+            feature_group_32be4f6f240e35d0c55d6258606b109d.addTo(map_5bff325d529057b402469d69f488ed63);
+        
+    
+            var feature_group_0ea0c2dea9768267be7019db13ad2e08 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            ant_path_d372b871eb36bae6a65674cefe53d5ee = L.polyline.antPath(
+              [[-33.75, -60.68], [-33.745927, -60.6896219], [-33.7379681, -60.6722992], [-33.7551209, -60.662815], [-33.7570118, -60.6617512], [-33.7561408, -60.6594682], [-33.7552647, -60.6572261], [-33.757116, -60.6561697], [-33.7562727, -60.6539109], [-33.7581868, -60.652832], [-33.7591309, -60.6523112], [-33.7600578, -60.6517897], [-33.7596248, -60.6506716], [-33.7591763, -60.6494957], [-33.7601265, -60.6489624], [-33.7606445, -60.6487182], [-33.7603661, -60.6480337], [-33.7603466, -60.6479849], [-33.7602241, -60.6475201], [-33.7625279, -60.6461925], [-33.7623224, -60.6311025], [-33.7818084, -60.620285], [-33.8402822, -60.595455], [-33.8471712, -60.5956191], [-33.8496281, -60.5924413], [-33.8508436, -60.5909109], [-33.8530655, -60.5879957], [-33.8533349, -60.5876478], [-33.8564842, -60.5834908], [-33.8567689, -60.5831218], [-33.8599663, -60.5789427], [-33.8603126, -60.5784774], [-33.8634422, -60.5742892], [-33.8637784, -60.5738692], [-33.8642656, -60.5732342], [-33.8651157, -60.572129], [-33.8659847, -60.5709755], [-33.8662229, -60.5706556], [-33.8666772, -60.5700611], [-33.866847, -60.5698977], [-33.8674132, -60.5690906], [-33.8681551, -60.5681198], [-33.8688367, -60.5672135], [-33.8694815, -60.5663728], [-33.8701458, -60.5655138], [-33.8702424, -60.5653861], [-33.8716042, -60.5635812], [-33.8720963, -60.5629148], [-33.8739308, -60.5639052], [-33.8769236, -60.5653572], [-33.8776763, -60.56572], [-33.8778073, -60.5657831], [-33.8784213, -60.5660842], [-33.8790945, -60.5663954], [-33.8792016, -60.566442], [-33.8799378, -60.5667796], [-33.8814466, -60.567505], [-33.8821958, -60.5678562], [-33.8829623, -60.5682365], [-33.8837934, -60.5686457], [-33.8845933, -60.5690255], [-33.8853946, -60.5694168], [-33.886161, -60.5697884], [-33.8869498, -60.5701573], [-33.8877295, -60.5705413], [-33.8878969, -60.5700363], [-33.8894956, -60.5707625], [-33.8895518, -60.5707901], [-33.8897018, -60.5703409], [-33.8897509, -60.5701904]],
+              {
+  &quot;stroke&quot;: true,
+  &quot;color&quot;: &quot;#2ecc71&quot;,
+  &quot;weight&quot;: 11.25,
+  &quot;opacity&quot;: 0.5,
+  &quot;lineCap&quot;: &quot;round&quot;,
+  &quot;lineJoin&quot;: &quot;round&quot;,
+  &quot;dashArray&quot;: [
+10,
+20,
+],
+  &quot;dashOffset&quot;: null,
+  &quot;fill&quot;: false,
+  &quot;fillColor&quot;: &quot;#2ecc71&quot;,
+  &quot;fillOpacity&quot;: 0.2,
+  &quot;fillRule&quot;: &quot;evenodd&quot;,
+  &quot;bubblingMouseEvents&quot;: true,
+  &quot;smoothFactor&quot;: 1.0,
+  &quot;noClip&quot;: false,
+  &quot;paused&quot;: false,
+  &quot;reverse&quot;: false,
+  &quot;hardwareAcceleration&quot;: false,
+  &quot;delay&quot;: 1100,
+  &quot;pulseColor&quot;: &quot;#ffffff&quot;,
+}
+        ).addTo(feature_group_0ea0c2dea9768267be7019db13ad2e08);
+        
+    
+            ant_path_d372b871eb36bae6a65674cefe53d5ee.bindTooltip(
+                `<div>
+                     <b>Santa Rita</b><br>Commodity: Soybeans<br>Load: 90 MT
+                 </div>`,
+                {
+  &quot;sticky&quot;: true,
+}
+            );
+        
+    
+            var marker_509c953d76a8f8f2fcdeb6aae46719b4 = L.marker(
+                [-33.75, -60.68],
+                {
+}
+            ).addTo(feature_group_0ea0c2dea9768267be7019db13ad2e08);
+        
+    
+            var icon_4aa6601571bad57c0fb488f74d74213d = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;black&quot;,
+  &quot;iconColor&quot;: &quot;#2ecc71&quot;,
+  &quot;icon&quot;: &quot;leaf&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_83b624a94c5492cfba18e552eefbf089 = L.popup({
+  &quot;maxWidth&quot;: &quot;100%&quot;,
+});
+
+        
+            
+                var html_8ef1d753ea708aff556e34328133db75 = $(`<div id=&quot;html_8ef1d753ea708aff556e34328133db75&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>Santa Rita</div>`)[0];
+                popup_83b624a94c5492cfba18e552eefbf089.setContent(html_8ef1d753ea708aff556e34328133db75);
+            
+        
+
+        marker_509c953d76a8f8f2fcdeb6aae46719b4.bindPopup(popup_83b624a94c5492cfba18e552eefbf089)
+        ;
+
+        
+    
+    
+                marker_509c953d76a8f8f2fcdeb6aae46719b4.setIcon(icon_4aa6601571bad57c0fb488f74d74213d);
+            
+    
+                marker_509c953d76a8f8f2fcdeb6aae46719b4.setIcon(icon_4aa6601571bad57c0fb488f74d74213d);
+            
+    
+                marker_509c953d76a8f8f2fcdeb6aae46719b4.setIcon(icon_4aa6601571bad57c0fb488f74d74213d);
+            
+    
+            ant_path_26494e089c2bf97b1d750609d3ef8ef4 = L.polyline.antPath(
+              [[-33.72, -60.55], [-33.7316317, -60.5280044], [-33.7381927, -60.4843095], [-33.742283, -60.4871017], [-33.7543697, -60.4939843], [-33.7869898, -60.5111623], [-33.7933042, -60.5144052], [-33.7981635, -60.5169263], [-33.8134428, -60.5248022], [-33.8197593, -60.5288603], [-33.8303327, -60.5346587], [-33.8323701, -60.5319511], [-33.8358667, -60.5357749], [-33.8392792, -60.5395174], [-33.8426498, -60.5432727], [-33.8460612, -60.5470107], [-33.8495312, -60.5508392], [-33.852993, -60.5546188], [-33.8564051, -60.5583899], [-33.8598178, -60.5621178], [-33.8631277, -60.5657677], [-33.863087, -60.5658217], [-33.8641035, -60.5669408], [-33.86498, -60.5679191], [-33.8660213, -60.5686784], [-33.8674132, -60.5690906], [-33.8681551, -60.5681198], [-33.8688367, -60.5672135], [-33.8694815, -60.5663728], [-33.8701458, -60.5655138], [-33.8702424, -60.5653861], [-33.8716042, -60.5635812], [-33.8720963, -60.5629148], [-33.8739308, -60.5639052], [-33.8769236, -60.5653572], [-33.8776763, -60.56572], [-33.8778073, -60.5657831], [-33.8784213, -60.5660842], [-33.8790945, -60.5663954], [-33.8792016, -60.566442], [-33.8799378, -60.5667796], [-33.8814466, -60.567505], [-33.8821958, -60.5678562], [-33.8829623, -60.5682365], [-33.8837934, -60.5686457], [-33.8845933, -60.5690255], [-33.8853946, -60.5694168], [-33.886161, -60.5697884], [-33.8869498, -60.5701573], [-33.8877295, -60.5705413], [-33.8878969, -60.5700363], [-33.8894956, -60.5707625], [-33.8895518, -60.5707901], [-33.8897018, -60.5703409], [-33.8897509, -60.5701904]],
+              {
+  &quot;stroke&quot;: true,
+  &quot;color&quot;: &quot;#2ecc71&quot;,
+  &quot;weight&quot;: 6.875,
+  &quot;opacity&quot;: 0.5,
+  &quot;lineCap&quot;: &quot;round&quot;,
+  &quot;lineJoin&quot;: &quot;round&quot;,
+  &quot;dashArray&quot;: [
+10,
+20,
+],
+  &quot;dashOffset&quot;: null,
+  &quot;fill&quot;: false,
+  &quot;fillColor&quot;: &quot;#2ecc71&quot;,
+  &quot;fillOpacity&quot;: 0.2,
+  &quot;fillRule&quot;: &quot;evenodd&quot;,
+  &quot;bubblingMouseEvents&quot;: true,
+  &quot;smoothFactor&quot;: 1.0,
+  &quot;noClip&quot;: false,
+  &quot;paused&quot;: false,
+  &quot;reverse&quot;: false,
+  &quot;hardwareAcceleration&quot;: false,
+  &quot;delay&quot;: 1100,
+  &quot;pulseColor&quot;: &quot;#ffffff&quot;,
+}
+        ).addTo(feature_group_0ea0c2dea9768267be7019db13ad2e08);
+        
+    
+            ant_path_26494e089c2bf97b1d750609d3ef8ef4.bindTooltip(
+                `<div>
+                     <b>El Amanecer</b><br>Commodity: Soybeans<br>Load: 55 MT
+                 </div>`,
+                {
+  &quot;sticky&quot;: true,
+}
+            );
+        
+    
+            var marker_7aa2a012916cefa17f22f1b9d1ae0b24 = L.marker(
+                [-33.72, -60.55],
+                {
+}
+            ).addTo(feature_group_0ea0c2dea9768267be7019db13ad2e08);
+        
+    
+            var icon_bede907b6aed4bfd80cbe4701550dbd1 = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;black&quot;,
+  &quot;iconColor&quot;: &quot;#2ecc71&quot;,
+  &quot;icon&quot;: &quot;leaf&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_c2d6e705c36161fffa4b21a21411f679 = L.popup({
+  &quot;maxWidth&quot;: &quot;100%&quot;,
+});
+
+        
+            
+                var html_422fd7ed4a86c0a23ecc715dcf4cc265 = $(`<div id=&quot;html_422fd7ed4a86c0a23ecc715dcf4cc265&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>El Amanecer</div>`)[0];
+                popup_c2d6e705c36161fffa4b21a21411f679.setContent(html_422fd7ed4a86c0a23ecc715dcf4cc265);
+            
+        
+
+        marker_7aa2a012916cefa17f22f1b9d1ae0b24.bindPopup(popup_c2d6e705c36161fffa4b21a21411f679)
+        ;
+
+        
+    
+    
+                marker_7aa2a012916cefa17f22f1b9d1ae0b24.setIcon(icon_bede907b6aed4bfd80cbe4701550dbd1);
+            
+    
+                marker_7aa2a012916cefa17f22f1b9d1ae0b24.setIcon(icon_bede907b6aed4bfd80cbe4701550dbd1);
+            
+    
+                marker_7aa2a012916cefa17f22f1b9d1ae0b24.setIcon(icon_bede907b6aed4bfd80cbe4701550dbd1);
+            
+    
+            feature_group_0ea0c2dea9768267be7019db13ad2e08.addTo(map_5bff325d529057b402469d69f488ed63);
+        
+    
+            var feature_group_5b213f2868329f80b84963cc1db9d95e = L.featureGroup(
+                {
+}
+            );
+        
+    
+            ant_path_dc7461669107bc014e80e772c5bec8fe = L.polyline.antPath(
+              [[-33.83, -60.78], [-33.8321278, -60.7647064], [-33.8321743, -60.7646457], [-33.8378847, -60.7566387], [-33.8508771, -60.7158632], [-33.8508149, -60.6841087], [-33.85987, -60.6724444], [-33.8650224, -60.6648257], [-33.8665258, -60.6587733], [-33.8685074, -60.6507133], [-33.8685421, -60.6505666], [-33.8695997, -60.646219], [-33.875217, -60.6266895], [-33.8719576, -60.6231117], [-33.8742339, -60.6163967], [-33.8760489, -60.6110388], [-33.8778644, -60.6057109], [-33.8796449, -60.6003062], [-33.8832052, -60.5895846], [-33.8844217, -60.5860143], [-33.8846742, -60.5852255], [-33.8850295, -60.5842022], [-33.885688, -60.5822353], [-33.8859955, -60.5813017], [-33.886303, -60.5803654], [-33.8866113, -60.5794334], [-33.8869379, -60.5784337], [-33.8873068, -60.5773587], [-33.8873638, -60.5771957], [-33.8876512, -60.5763343], [-33.8877075, -60.5761677], [-33.887981, -60.5753532], [-33.8880927, -60.575026], [-33.8883218, -60.5743323], [-33.8884345, -60.5739896], [-33.8886591, -60.5733311], [-33.8887896, -60.5729376], [-33.8890023, -60.572326], [-33.8890924, -60.5720686], [-33.8893722, -60.5713263], [-33.8895518, -60.5707901], [-33.8897018, -60.5703409], [-33.8897509, -60.5701904]],
+              {
+  &quot;stroke&quot;: true,
+  &quot;color&quot;: &quot;#e67e22&quot;,
+  &quot;weight&quot;: 15.0,
+  &quot;opacity&quot;: 0.5,
+  &quot;lineCap&quot;: &quot;round&quot;,
+  &quot;lineJoin&quot;: &quot;round&quot;,
+  &quot;dashArray&quot;: [
+10,
+20,
+],
+  &quot;dashOffset&quot;: null,
+  &quot;fill&quot;: false,
+  &quot;fillColor&quot;: &quot;#e67e22&quot;,
+  &quot;fillOpacity&quot;: 0.2,
+  &quot;fillRule&quot;: &quot;evenodd&quot;,
+  &quot;bubblingMouseEvents&quot;: true,
+  &quot;smoothFactor&quot;: 1.0,
+  &quot;noClip&quot;: false,
+  &quot;paused&quot;: false,
+  &quot;reverse&quot;: false,
+  &quot;hardwareAcceleration&quot;: false,
+  &quot;delay&quot;: 1100,
+  &quot;pulseColor&quot;: &quot;#ffffff&quot;,
+}
+        ).addTo(feature_group_5b213f2868329f80b84963cc1db9d95e);
+        
+    
+            ant_path_dc7461669107bc014e80e772c5bec8fe.bindTooltip(
+                `<div>
+                     <b>La Posta</b><br>Commodity: Wheat<br>Load: 120 MT
+                 </div>`,
+                {
+  &quot;sticky&quot;: true,
+}
+            );
+        
+    
+            var marker_b503b1fea0aaf570db28cbbf51fc81cd = L.marker(
+                [-33.83, -60.78],
+                {
+}
+            ).addTo(feature_group_5b213f2868329f80b84963cc1db9d95e);
+        
+    
+            var icon_220902b5443efc472ff570a8228bc6d5 = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;black&quot;,
+  &quot;iconColor&quot;: &quot;#e67e22&quot;,
+  &quot;icon&quot;: &quot;leaf&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_f8005d674b2442a4da05dafea7bb5ccb = L.popup({
+  &quot;maxWidth&quot;: &quot;100%&quot;,
+});
+
+        
+            
+                var html_1312416aaad306621e0633aee644f804 = $(`<div id=&quot;html_1312416aaad306621e0633aee644f804&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>La Posta</div>`)[0];
+                popup_f8005d674b2442a4da05dafea7bb5ccb.setContent(html_1312416aaad306621e0633aee644f804);
+            
+        
+
+        marker_b503b1fea0aaf570db28cbbf51fc81cd.bindPopup(popup_f8005d674b2442a4da05dafea7bb5ccb)
+        ;
+
+        
+    
+    
+                marker_b503b1fea0aaf570db28cbbf51fc81cd.setIcon(icon_220902b5443efc472ff570a8228bc6d5);
+            
+    
+                marker_b503b1fea0aaf570db28cbbf51fc81cd.setIcon(icon_220902b5443efc472ff570a8228bc6d5);
+            
+    
+                marker_b503b1fea0aaf570db28cbbf51fc81cd.setIcon(icon_220902b5443efc472ff570a8228bc6d5);
+            
+    
+            ant_path_fe45ca95c5d0911bdb3897377b157baf = L.polyline.antPath(
+              [[-33.88, -60.85], [-33.8632687, -60.7767874], [-33.8378847, -60.7566387], [-33.8508771, -60.7158632], [-33.8508149, -60.6841087], [-33.85987, -60.6724444], [-33.8650224, -60.6648257], [-33.8665258, -60.6587733], [-33.8685074, -60.6507133], [-33.8685421, -60.6505666], [-33.8695997, -60.646219], [-33.875217, -60.6266895], [-33.8719576, -60.6231117], [-33.8742339, -60.6163967], [-33.8760489, -60.6110388], [-33.8778644, -60.6057109], [-33.8796449, -60.6003062], [-33.8832052, -60.5895846], [-33.8844217, -60.5860143], [-33.8846742, -60.5852255], [-33.8850295, -60.5842022], [-33.885688, -60.5822353], [-33.8859955, -60.5813017], [-33.886303, -60.5803654], [-33.8866113, -60.5794334], [-33.8869379, -60.5784337], [-33.8873068, -60.5773587], [-33.8873638, -60.5771957], [-33.8876512, -60.5763343], [-33.8877075, -60.5761677], [-33.887981, -60.5753532], [-33.8880927, -60.575026], [-33.8883218, -60.5743323], [-33.8884345, -60.5739896], [-33.8886591, -60.5733311], [-33.8887896, -60.5729376], [-33.8890023, -60.572326], [-33.8890924, -60.5720686], [-33.8893722, -60.5713263], [-33.8895518, -60.5707901], [-33.8897018, -60.5703409], [-33.8897509, -60.5701904]],
+              {
+  &quot;stroke&quot;: true,
+  &quot;color&quot;: &quot;#e67e22&quot;,
+  &quot;weight&quot;: 13.75,
+  &quot;opacity&quot;: 0.5,
+  &quot;lineCap&quot;: &quot;round&quot;,
+  &quot;lineJoin&quot;: &quot;round&quot;,
+  &quot;dashArray&quot;: [
+10,
+20,
+],
+  &quot;dashOffset&quot;: null,
+  &quot;fill&quot;: false,
+  &quot;fillColor&quot;: &quot;#e67e22&quot;,
+  &quot;fillOpacity&quot;: 0.2,
+  &quot;fillRule&quot;: &quot;evenodd&quot;,
+  &quot;bubblingMouseEvents&quot;: true,
+  &quot;smoothFactor&quot;: 1.0,
+  &quot;noClip&quot;: false,
+  &quot;paused&quot;: false,
+  &quot;reverse&quot;: false,
+  &quot;hardwareAcceleration&quot;: false,
+  &quot;delay&quot;: 1100,
+  &quot;pulseColor&quot;: &quot;#ffffff&quot;,
+}
+        ).addTo(feature_group_5b213f2868329f80b84963cc1db9d95e);
+        
+    
+            ant_path_fe45ca95c5d0911bdb3897377b157baf.bindTooltip(
+                `<div>
+                     <b>Campo Largo</b><br>Commodity: Wheat<br>Load: 110 MT
+                 </div>`,
+                {
+  &quot;sticky&quot;: true,
+}
+            );
+        
+    
+            var marker_f28e5ee9b03b5c54bff3211906d25675 = L.marker(
+                [-33.88, -60.85],
+                {
+}
+            ).addTo(feature_group_5b213f2868329f80b84963cc1db9d95e);
+        
+    
+            var icon_665e974a11b7b5df85e40a603ed44c80 = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;black&quot;,
+  &quot;iconColor&quot;: &quot;#e67e22&quot;,
+  &quot;icon&quot;: &quot;leaf&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_474c3c27c79547bb82873cd4622e7139 = L.popup({
+  &quot;maxWidth&quot;: &quot;100%&quot;,
+});
+
+        
+            
+                var html_9c02f01665d643fa3cc59bccba640862 = $(`<div id=&quot;html_9c02f01665d643fa3cc59bccba640862&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>Campo Largo</div>`)[0];
+                popup_474c3c27c79547bb82873cd4622e7139.setContent(html_9c02f01665d643fa3cc59bccba640862);
+            
+        
+
+        marker_f28e5ee9b03b5c54bff3211906d25675.bindPopup(popup_474c3c27c79547bb82873cd4622e7139)
+        ;
+
+        
+    
+    
+                marker_f28e5ee9b03b5c54bff3211906d25675.setIcon(icon_665e974a11b7b5df85e40a603ed44c80);
+            
+    
+                marker_f28e5ee9b03b5c54bff3211906d25675.setIcon(icon_665e974a11b7b5df85e40a603ed44c80);
+            
+    
+                marker_f28e5ee9b03b5c54bff3211906d25675.setIcon(icon_665e974a11b7b5df85e40a603ed44c80);
+            
+    
+            feature_group_5b213f2868329f80b84963cc1db9d95e.addTo(map_5bff325d529057b402469d69f488ed63);
+        
+    
+            var marker_251d73c7f2863ef8d23eeb087ba64fa0 = L.marker(
+                [-33.89, -60.57],
+                {
+}
+            ).addTo(map_5bff325d529057b402469d69f488ed63);
+        
+    
+            var icon_5d5ce4d4fb58b082e407ab3d55cc46f2 = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;red&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;industry&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_8bfb5e9222a90ee0be54f4b0af3a87f3 = L.popup({
+  &quot;maxWidth&quot;: &quot;100%&quot;,
+});
+
+        
+            
+                var html_5c58e31dc7ae2454fa6e980c8611b106 = $(`<div id=&quot;html_5c58e31dc7ae2454fa6e980c8611b106&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>CENTRAL PROCESSING PLANT</div>`)[0];
+                popup_8bfb5e9222a90ee0be54f4b0af3a87f3.setContent(html_5c58e31dc7ae2454fa6e980c8611b106);
+            
+        
+
+        marker_251d73c7f2863ef8d23eeb087ba64fa0.bindPopup(popup_8bfb5e9222a90ee0be54f4b0af3a87f3)
+        ;
+
+        
+    
+    
+                marker_251d73c7f2863ef8d23eeb087ba64fa0.setIcon(icon_5d5ce4d4fb58b082e407ab3d55cc46f2);
+            
+    
+                marker_251d73c7f2863ef8d23eeb087ba64fa0.setIcon(icon_5d5ce4d4fb58b082e407ab3d55cc46f2);
+            
+    
+                marker_251d73c7f2863ef8d23eeb087ba64fa0.setIcon(icon_5d5ce4d4fb58b082e407ab3d55cc46f2);
+            
+    
+            var marker_7a2a848d47ea9a7dfb211c5a5300c034 = L.marker(
+                [-33.89, -60.57],
+                {
+}
+            ).addTo(map_5bff325d529057b402469d69f488ed63);
+        
+    
+            var icon_e5a2c5d40e505cd7cd118e522e6641c6 = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;red&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;industry&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_1594cce06a5574dff2834d2b1847dcd7 = L.popup({
+  &quot;maxWidth&quot;: &quot;100%&quot;,
+});
+
+        
+            
+                var html_3b4e75c699b4c8d860d8b82023f01fbd = $(`<div id=&quot;html_3b4e75c699b4c8d860d8b82023f01fbd&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>CENTRAL PROCESSING PLANT</div>`)[0];
+                popup_1594cce06a5574dff2834d2b1847dcd7.setContent(html_3b4e75c699b4c8d860d8b82023f01fbd);
+            
+        
+
+        marker_7a2a848d47ea9a7dfb211c5a5300c034.bindPopup(popup_1594cce06a5574dff2834d2b1847dcd7)
+        ;
+
+        
+    
+    
+                marker_7a2a848d47ea9a7dfb211c5a5300c034.setIcon(icon_e5a2c5d40e505cd7cd118e522e6641c6);
+            
+    
+            var layer_control_596768bfee1672a193fa0c54899e6723_layers = {
+                base_layers : {
+                    &quot;cartodbdarkmatter&quot; : tile_layer_7630a72a17ccc0a372bd82cd273d5d4b,
+                },
+                overlays :  {
+                    &quot;\u003cspan style=\&quot;color:#f1c40f\&quot;\u003e\u25cf\u003c/span\u003e Maize&quot; : feature_group_32be4f6f240e35d0c55d6258606b109d,
+                    &quot;\u003cspan style=\&quot;color:#2ecc71\&quot;\u003e\u25cf\u003c/span\u003e Soybeans&quot; : feature_group_0ea0c2dea9768267be7019db13ad2e08,
+                    &quot;\u003cspan style=\&quot;color:#e67e22\&quot;\u003e\u25cf\u003c/span\u003e Wheat&quot; : feature_group_5b213f2868329f80b84963cc1db9d95e,
+                },
+            };
+            let layer_control_596768bfee1672a193fa0c54899e6723 = L.control.layers(
+                layer_control_596768bfee1672a193fa0c54899e6723_layers.base_layers,
+                layer_control_596768bfee1672a193fa0c54899e6723_layers.overlays,
+                {
+  &quot;position&quot;: &quot;topright&quot;,
+  &quot;collapsed&quot;: false,
+  &quot;autoZIndex&quot;: true,
+}
+            ).addTo(map_5bff325d529057b402469d69f488ed63);
+
+        
+    
+            tile_layer_7630a72a17ccc0a372bd82cd273d5d4b.addTo(map_5bff325d529057b402469d69f488ed63);
+        
+    
+                marker_c2dbd15fbe81e6c4324ce365316a0080.setIcon(icon_a55b73b19d246018b5477df0af7fb04b);
+            
+    
+                marker_38057114be2f0b916e10f1053239ad97.setIcon(icon_4191c3c8fc105e0f15772b1996ca2e8b);
+            
+    
+                marker_f5b61920ec160c8f8be6c3cbf81c64fb.setIcon(icon_49202dd74fa6777f31d5a52276d1495a);
+            
+    
+            feature_group_32be4f6f240e35d0c55d6258606b109d.addTo(map_5bff325d529057b402469d69f488ed63);
+        
+    
+                marker_509c953d76a8f8f2fcdeb6aae46719b4.setIcon(icon_4aa6601571bad57c0fb488f74d74213d);
+            
+    
+                marker_7aa2a012916cefa17f22f1b9d1ae0b24.setIcon(icon_bede907b6aed4bfd80cbe4701550dbd1);
+            
+    
+            feature_group_0ea0c2dea9768267be7019db13ad2e08.addTo(map_5bff325d529057b402469d69f488ed63);
+        
+    
+                marker_b503b1fea0aaf570db28cbbf51fc81cd.setIcon(icon_220902b5443efc472ff570a8228bc6d5);
+            
+    
+                marker_f28e5ee9b03b5c54bff3211906d25675.setIcon(icon_665e974a11b7b5df85e40a603ed44c80);
+            
+    
+            feature_group_5b213f2868329f80b84963cc1db9d95e.addTo(map_5bff325d529057b402469d69f488ed63);
+        
+    
+                marker_251d73c7f2863ef8d23eeb087ba64fa0.setIcon(icon_5d5ce4d4fb58b082e407ab3d55cc46f2);
+            
+    
+                marker_7a2a848d47ea9a7dfb211c5a5300c034.setIcon(icon_e5a2c5d40e505cd7cd118e522e6641c6);
+            
+</script>
+</html>" width="100%" height="800" style="border:none !important;" "allowfullscreen"="" "webkitallowfullscreen"="" "mozallowfullscreen"=""></iframe>
+</div>
+</div>
+</section>
+<section id="strategic-findings-and-analytical-conclusions" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="strategic-findings-and-analytical-conclusions"><span class="header-section-number">7</span> Strategic Findings and Analytical Conclusions</h2>
+<p>The implementation of a dynamic routing model for multi-commodity agricultural flows provides critical insights into the regional supply chain. By analyzing the animated transit corridors between the storage units (Farms) and the processing hub, several logistical patterns emerge.</p>
+<section id="key-analytical-insights" class="level3" data-number="7.1">
+<h3 data-number="7.1" class="anchored" data-anchor-id="key-analytical-insights"><span class="header-section-number">7.1</span> Key Analytical Insights</h3>
+<ul>
+<li><strong>Corridor Pressure Analysis:</strong> The use of <strong>weighted polylines</strong> (proportional to tonnage) reveals the “High-Load Corridors.” Identifying these segments is vital for local infrastructure maintenance, as they bear the highest mechanical stress from heavy-duty grain transport.</li>
+<li><strong>Dynamic Flow Directionality:</strong> Utilizing <strong>AntPath</strong> allows for the visualization of real-time “pulse” in the network. This differentiates between static infrastructure and active movement, providing a more intuitive understanding of harvest-time logistics.</li>
+<li><strong>Multi-Commodity Convergence:</strong> The spatial intersection of Maize, Soybeans, and Wheat routes highlights potential bottlenecks. Strategic planning at these convergence points can significantly reduce transit latency and fuel consumption.</li>
+</ul>
+</section>
+<section id="technical-summary" class="level3" data-number="7.2">
+<h3 data-number="7.2" class="anchored" data-anchor-id="technical-summary"><span class="header-section-number">7.2</span> Technical Summary</h3>
+<ol type="1">
+<li><strong>Network Fidelity:</strong> Leveraging <strong>OSMNX</strong> ensured that the shortest path calculations were based on the actual topology of the driving network, providing a 1:1 reflection of field operations.</li>
+<li><strong>Scalable UI:</strong> The integration of a custom CSS header and a high-contrast <strong>Dark Matter</strong> base map enhances the legibility of vector data, making the dashboard suitable for executive-level reporting.</li>
+<li><strong>Optimization Potential:</strong> This model serves as a foundation for future <strong>Last-Mile Optimization</strong> and <strong>Vehicle Routing Problem (VRP)</strong> simulations within the regional agricultural sector.</li>
+</ol>
+<hr>
+<p><em>Developed by Alexis D. Araujo C. | Agricultural Engineer &amp; Geospatial Data Scientist</em></p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/alexisdaraujoc\.github\.io\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

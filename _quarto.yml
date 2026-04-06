@@ -13,11 +13,11 @@ website:
         text: "Home"
       - text: "Projects"
         menu:
-          # Ruta corregida para coincidir con tu estructura de carpetas actual
           - text: "Grain Storage Network Optimization"
             href: 30daymapchallenge/day1_points_silos/day1_points_silos.ipynb
-          - text: "Agro-Logistics"
-            href: 30daymapchallenge/dia2_lines/agrologistica.ipynb
+          - text: "Agro-Logistics Dynamics"
+            # Ruta actualizada para coincidir con tu nueva carpeta y archivo .ipynb
+            href: 30daymapchallenge/day2_lines_antpath/day2_lines_antpath.ipynb
       - href: about.qmd
         text: "About Me"
 
