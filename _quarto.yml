@@ -14,7 +14,7 @@ website:
       - text: "Projects"
         menu:
           # Ruta corregida para coincidir con tu estructura de carpetas actual
-          - text: "Silo Infrastructure"
+          - text: "Grain Storage Network Optimization"
             href: 30daymapchallenge/day1_points_silos/day1_points_silos.ipynb
           - text: "Agro-Logistics"
             href: 30daymapchallenge/dia2_lines/agrologistica.ipynb
