@@ -5,22 +5,22 @@ subtitle: "Bridging Agricultural Engineering with Python Automation & Network An
 
 ## Professional Profile
 
-I am an **Agricultural Engineer & Geospatial Data Specialist**[cite: 1] with over a decade of experience optimizing regional resource allocation, logistics infrastructure, and supply chain networks[cite: 1]. This portfolio serves as a technical validation of my expertise in deploying automated data pipelines and advanced spatial modeling[cite: 1] to solve complex, real-world operational bottlenecks[cite: 1].
+I am an **Agricultural Engineer & Geospatial Data Specialist** with over a decade of experience optimizing regional resource allocation, logistics infrastructure, and supply chain networks. This portfolio serves as a technical validation of my expertise in deploying automated data pipelines and advanced spatial modeling to solve complex, real-world operational bottlenecks.
 
 ### Featured Projects: The 30-Day Map Challenge Portfolio
 
-To demonstrate my technical execution in programming, automation, and GIS[cite: 1], the following projects solve industrial and agricultural infrastructure challenges:
+To demonstrate my technical execution in programming, automation, and GIS, the following projects solve industrial and agricultural infrastructure challenges:
 
 * **[Grain Storage Network Optimization | Day 1: Points](30daymapchallenge/day1_points_silos/day1_points_silos.html)**
-  * **Technical Backing:** Validates skills in **Spatial Data Pipelines** and **Infrastructure Oversight**[cite: 1].
-  * **Description:** An advanced spatial analysis that models grain storage capacity and point-density to identify infrastructure deficits and optimize regional agricultural resource allocation[cite: 1].
+  * **Technical Backing:** Validates skills in **Spatial Data Pipelines** and **Infrastructure Oversight**.
+  * **Description:** An advanced spatial analysis that models grain storage capacity and point-density to identify infrastructure deficits and optimize regional agricultural resource allocation.
     
 * **[Agro-Logistics Dynamics: Multi-Commodity Flow | Day 2: Lines](30daymapchallenge/day2_lines_antpath/day2_lines_antpath.html)**
-  * **Technical Backing:** Validates skills in **Network Routing Optimization**, **OSMNX**, and **Fleet Coordination**[cite: 1].
-  * **Description:** A graph-theory routing model using `NetworkX` and `OSMNX` to simulate real-world transport corridors for Maize, Soybeans, and Wheat. Features kinetic `AntPath` polylines weighted by tonnage to identify supply chain bottlenecks and minimize operational downtime[cite: 1].
+  * **Technical Backing:** Validates skills in **Network Routing Optimization**, **OSMNX**, and **Fleet Coordination**.
+  * **Description:** A graph-theory routing model using `NetworkX` and `OSMNX` to simulate real-world transport corridors for Maize, Soybeans, and Wheat. Features kinetic `AntPath` polylines weighted by tonnage to identify supply chain bottlenecks and minimize operational downtime.
 
 * **[Continuous Geospatial Challenge Research](https://github.com/alexisdaraujoc/alexisdaraujoc.github.io)**
-  A dedicated repository featuring production-ready scripts, demonstrating full proficiency in **Python (GeoPandas, Rasterio)**[cite: 1] and **PostGIS/SQL database modeling**[cite: 1].
+  A dedicated repository featuring production-ready scripts, demonstrating full proficiency in **Python (GeoPandas, Rasterio)** and **PostGIS/SQL database modeling**.
 
 ---
-*Professional Credentials & Contact: [Data-Driven LinkedIn Profile](https://www.linkedin.com/in/alexisdaraujoc)*[cite: 1]
+*Professional Credentials & Contact: [Data-Driven LinkedIn Profile](https://www.linkedin.com/in/alexisdaraujoc)*
