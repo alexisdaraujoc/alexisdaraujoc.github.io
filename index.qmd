@@ -1,26 +1,26 @@
 ---
-title: "Alexis Araujo | Geospatial Engineering & AgTech Portfolio"
-subtitle: "Bridging Agricultural Engineering with Python Automation & Network Analytics"
+title: "Alexis Araujo | Geospatial Data Science & AgTech Solutions"
+subtitle: "Engineering Advanced Spatial Analytics, Network Optimization & Python Automation"
 ---
 
 ## Professional Profile
 
-I am an **Agricultural Engineer & Geospatial Data Specialist** with over a decade of experience optimizing regional resource allocation, logistics infrastructure, and supply chain networks. This portfolio serves as a technical validation of my expertise in deploying automated data pipelines and advanced spatial modeling to solve complex, real-world operational bottlenecks.
+I am an **Agricultural Engineer & Geospatial Data Specialist** with over a decade of experience designing automated data pipelines, processing complex spatial datasets, and optimizing regional infrastructure networks. This portfolio serves as a technical validation of my ability to deploy production-ready Python workflows and advanced GIS modeling to solve real-world operational bottlenecks.
 
-### Featured Projects: The 30-Day Map Challenge Portfolio
+## Core Engineering Portfolio
 
-To demonstrate my technical execution in programming, automation, and GIS, the following projects solve industrial and agricultural infrastructure challenges:
+The following production-grade frameworks demonstrate my technical execution in spatial data science, web-mapping automation, and advanced geographic modeling:
 
-* **[Grain Storage Network Optimization | Day 1: Points](30daymapchallenge/day1_points_silos/day1_points_silos.html)**
-  * **Technical Backing:** Validates skills in **Spatial Data Pipelines** and **Infrastructure Oversight**.
-  * **Description:** An advanced spatial analysis that models grain storage capacity and point-density to identify infrastructure deficits and optimize regional agricultural resource allocation.
+* **[Spatial Infrastructure Optimization: Grain Storage Networks](30daymapchallenge/day1_points_silos/day1_points_silos.html)**
+  * **Core Competencies:** Point-Pattern Analysis, Spatial Data Pipelines, Regional Resource Allocation.
+  * **Analytical Focus:** An advanced geospatial framework that models grain storage capacities and regional density clusters to detect infrastructure deficits and optimize strategic resource allocation.
     
-* **[Agro-Logistics Dynamics: Multi-Commodity Flow | Day 2: Lines](30daymapchallenge/day2_lines_antpath/day2_lines_antpath.html)**
-  * **Technical Backing:** Validates skills in **Network Routing Optimization**, **OSMNX**, and **Fleet Coordination**.
-  * **Description:** A graph-theory routing model using `NetworkX` and `OSMNX` to simulate real-world transport corridors for Maize, Soybeans, and Wheat. Features kinetic `AntPath` polylines weighted by tonnage to identify supply chain bottlenecks and minimize operational downtime.
+* **[Dynamic Network Analytics: Multi-Commodity Supply Chains](30daymapchallenge/day2_lines_antpath/day2_lines_antpath.html)**
+  * **Core Competencies:** Graph Theory Routing, NetworkX & OSMnx Frameworks, Kinetic Web-Mapping.
+  * **Analytical Focus:** A mathematical routing model leveraging network analytics to simulate real-world transport corridors for key agricultural commodities. Features dynamic, tonnage-weighted visualizations to isolate supply chain bottlenecks and minimize logistics downtime.
 
-* **[Continuous Geospatial Challenge Research](https://github.com/alexisdaraujoc/alexisdaraujoc.github.io)**
-  A dedicated repository featuring production-ready scripts, demonstrating full proficiency in **Python (GeoPandas, Rasterio)** and **PostGIS/SQL database modeling**.
+* **[Advanced Geographic Repositories & Automation Scripts](https://github.com/alexisdaraujoc/alexisdaraujoc.github.io)**
+  Production-ready code architecture demonstrating full technical proficiency in pythonic automation (GeoPandas, Rasterio), spatial database design (PostGIS/SQL), and interactive visualization engineering.
 
 ---
 *Professional Credentials & Contact: [Data-Driven LinkedIn Profile](https://www.linkedin.com/in/alexisdaraujoc)*
