@@ -1,22 +1,26 @@
 ---
-title: "Agricultural Engineering & Geospatial Data"
-subtitle: "Harnessing Python for AgTech Solutions"
+title: "Alexis Araujo | Geospatial Engineering & AgTech Portfolio"
+subtitle: "Bridging Agricultural Engineering with Python Automation & Network Analytics"
 ---
 
 ## Professional Profile
 
-I am **Alexis Araujo**, an Agricultural Engineer specializing in geospatial analysis and data automation. This portfolio showcases my work in optimizing agricultural infrastructure and logistics.
+I am an **Agricultural Engineer & Geospatial Data Specialist**[cite: 1] with over a decade of experience optimizing regional resource allocation, logistics infrastructure, and supply chain networks[cite: 1]. This portfolio serves as a technical validation of my expertise in deploying automated data pipelines and advanced spatial modeling[cite: 1] to solve complex, real-world operational bottlenecks[cite: 1].
 
-### Featured Projects
+### Featured Projects: The 30-Day Map Challenge Portfolio
 
-* **[Grain Storage Network Optimization](30daymapchallenge/day1_points_silos/day1_points_silos.html)**
-    A spatial study on grain storage distribution and capacity using point-pattern analysis.
+To demonstrate my technical execution in programming, automation, and GIS[cite: 1], the following projects solve industrial and agricultural infrastructure challenges:
+
+* **[Grain Storage Network Optimization | Day 1: Points](30daymapchallenge/day1_points_silos/day1_points_silos.html)**
+  * **Technical Backing:** Validates skills in **Spatial Data Pipelines** and **Infrastructure Oversight**[cite: 1].
+  * **Description:** An advanced spatial analysis that models grain storage capacity and point-density to identify infrastructure deficits and optimize regional agricultural resource allocation[cite: 1].
     
-* **[Agro-Logistics Dynamics: Multi-Commodity Flow](30daymapchallenge/day2_lines_antpath/day2_lines_antpath.html)**
-    Visualizing regional supply chain connectivity through animated transit corridors and shortest-path algorithms.
+* **[Agro-Logistics Dynamics: Multi-Commodity Flow | Day 2: Lines](30daymapchallenge/day2_lines_antpath/day2_lines_antpath.html)**
+  * **Technical Backing:** Validates skills in **Network Routing Optimization**, **OSMNX**, and **Fleet Coordination**[cite: 1].
+  * **Description:** A graph-theory routing model using `NetworkX` and `OSMNX` to simulate real-world transport corridors for Maize, Soybeans, and Wheat. Features kinetic `AntPath` polylines weighted by tonnage to identify supply chain bottlenecks and minimize operational downtime[cite: 1].
 
-* **[30 Day Map Challenge](https://github.com/alexisdaraujoc/alexisdaraujoc.github.io)**
-    A continuous series of geospatial visualizations focusing on agricultural dynamics and infrastructure.
+* **[Continuous Geospatial Challenge Research](https://github.com/alexisdaraujoc/alexisdaraujoc.github.io)**
+  A dedicated repository featuring production-ready scripts, demonstrating full proficiency in **Python (GeoPandas, Rasterio)**[cite: 1] and **PostGIS/SQL database modeling**[cite: 1].
 
 ---
-*Contact: [www.linkedin.com/in/alexisdaraujoc](https://www.linkedin.com/in/alexisdaraujoc)*
+*Professional Credentials & Contact: [Data-Driven LinkedIn Profile](https://www.linkedin.com/in/alexisdaraujoc)*[cite: 1]
