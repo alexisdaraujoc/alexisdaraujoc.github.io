@@ -11,11 +11,11 @@ I am an **Agricultural Engineer & Geospatial Data Specialist** with over a decad
 
 The following production-grade frameworks demonstrate my technical execution in spatial data science, web-mapping automation, and advanced geographic modeling:
 
-* **[Spatial Infrastructure Optimization: Grain Storage Networks](30daymapchallenge/day1_points_silos/day1_points_silos.html)**
+* **[Spatial Infrastructure Optimization: Grain Storage Networks](python_portfolio/infrastructure_storage_optimization/day1_points_silos.html)**
   * **Core Competencies:** Point-Pattern Analysis, Spatial Data Pipelines, Regional Resource Allocation.
   * **Analytical Focus:** An advanced geospatial framework that models grain storage capacities and regional density clusters to detect infrastructure deficits and optimize strategic resource allocation.
     
-* **[Dynamic Network Analytics: Multi-Commodity Supply Chains](30daymapchallenge/day2_lines_antpath/day2_lines_antpath.html)**
+* **[Dynamic Network Analytics: Multi-Commodity Supply Chains](python_portfolio/dynamic_network_analytics/day2_lines_antpath.html)**
   * **Core Competencies:** Graph Theory Routing, NetworkX & OSMnx Frameworks, Kinetic Web-Mapping.
   * **Analytical Focus:** A mathematical routing model leveraging network analytics to simulate real-world transport corridors for key agricultural commodities. Features dynamic, tonnage-weighted visualizations to isolate supply chain bottlenecks and minimize logistics downtime.
 

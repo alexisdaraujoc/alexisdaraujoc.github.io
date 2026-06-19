@@ -1,31 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://alexisdaraujoc.github.io/index.html</loc>
-    <lastmod>2026-06-19T22:41:18.261Z</lastmod>
-  </url>
-  <url>
-    <loc>https://alexisdaraujoc.github.io/30daymapchallenge/day4_earth_terra_nutritiva/Untitled.html</loc>
-    <lastmod>2026-05-26T23:46:03.020Z</lastmod>
-  </url>
-  <url>
-    <loc>https://alexisdaraujoc.github.io/30daymapchallenge/day3_polygons_venezuela_soils/venezuela_soils.html</loc>
-    <lastmod>2026-04-21T15:23:49.892Z</lastmod>
-  </url>
-  <url>
-    <loc>https://alexisdaraujoc.github.io/30daymapchallenge/day1_points_silos/day1_points_silos.html</loc>
+    <loc>https://alexisdaraujoc.github.io/python_portfolio/infrastructure_storage_optimization/infrastructure_storage_optimization.html</loc>
     <lastmod>2026-05-23T00:18:52.200Z</lastmod>
   </url>
   <url>
-    <loc>https://alexisdaraujoc.github.io/30daymapchallenge/day2_lines_antpath/day2_lines_antpath.html</loc>
-    <lastmod>2026-04-20T23:31:29.582Z</lastmod>
+    <loc>https://alexisdaraujoc.github.io/index.html</loc>
+    <lastmod>2026-06-19T23:44:18.555Z</lastmod>
   </url>
   <url>
     <loc>https://alexisdaraujoc.github.io/30daymapchallenge/day3_polygons_venezuela_soils/Venezuela_soil_clasification.html</loc>
     <lastmod>2026-04-22T01:22:51.981Z</lastmod>
   </url>
   <url>
+    <loc>https://alexisdaraujoc.github.io/30daymapchallenge/day3_polygons_venezuela_soils/venezuela_soils.html</loc>
+    <lastmod>2026-04-21T15:23:49.892Z</lastmod>
+  </url>
+  <url>
     <loc>https://alexisdaraujoc.github.io/about.html</loc>
     <lastmod>2026-04-05T22:00:28.529Z</lastmod>
+  </url>
+  <url>
+    <loc>https://alexisdaraujoc.github.io/python_portfolio/dynamic_network_analytics/day2_lines_antpath.html</loc>
+    <lastmod>2026-04-20T23:31:29.582Z</lastmod>
   </url>
 </urlset>

@@ -11,13 +11,27 @@ website:
     left:
       - href: index.qmd
         text: "Home"
-      - text: "Projects"
+        
+      # PESTAÑA 1: Python & Spatial Data Science
+      - text: "Python & Spatial Data Science"
         menu:
-          - text: "Grain Storage Network Optimization"
-            href: 30daymapchallenge/day1_points_silos/day1_points_silos.ipynb
-          - text: "Agro-Logistics Dynamics"
-            # Ruta actualizada para coincidir con tu nueva carpeta y archivo .ipynb
-            href: 30daymapchallenge/day2_lines_antpath/day2_lines_antpath.ipynb
+          - text: "Spatial Infrastructure Optimization"
+            href: python_portfolio/infrastructure_storage_optimization/infrastructure_storage_optimization.ipynb
+          - text: "Dynamic Network Analytics"
+            href: python_portfolio/dynamic_network_analytics/day2_lines_antpath.ipynb
+          
+      # PESTAÑA 2: QGIS Cartographic Engineering
+      - text: "QGIS Cartographic Engineering"
+        menu:
+          - text: "Regional Soil Classification (Venezuela)"
+            href: index.qmd
+
+      # PESTAÑA 3: ArcGIS Enterprise Solutions
+      - text: "ArcGIS Enterprise Solutions"
+        menu:
+          - text: "Terrain Modeling & Hydrology Showcase"
+            href: index.qmd
+
       - href: about.qmd
         text: "About Me"
 
