@@ -7,7 +7,7 @@ about:
   links:
     - icon: linkedin
       text: LinkedIn
-      href: https://www.linkedin.com/in/alexisdaraujo
+      href: www.linkedin.com/in/alexisdaraujoc
     - icon: github
       text: GitHub
       href: https://github.com/alexisdaraujoc
