@@ -44,23 +44,30 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Alexis Araujo | Geospatial Data Science & AgTech Solutions",
+    "title": "Alexis Araujo",
     "section": "",
-    "text": "I am an Agricultural Engineer & Geospatial Data Specialist with over a decade of experience designing automated data pipelines, processing complex spatial datasets, and optimizing regional infrastructure networks. This portfolio serves as a technical validation of my ability to deploy production-ready Python workflows and advanced GIS modeling to solve real-world operational bottlenecks."
+    "text": "I am an Agricultural Engineer & Geospatial Data Specialist with over a decade of experience designing automated data pipelines, processing complex spatial datasets, and optimizing regional infrastructure networks. This portfolio serves as a technical validation of my ability to deploy production-ready GIS workflows, advanced geographic modeling, and custom programming to solve real-world operational bottlenecks."
   },
   {
     "objectID": "index.html#professional-profile",
     "href": "index.html#professional-profile",
-    "title": "Alexis Araujo | Geospatial Data Science & AgTech Solutions",
+    "title": "Alexis Araujo",
     "section": "",
-    "text": "I am an Agricultural Engineer & Geospatial Data Specialist with over a decade of experience designing automated data pipelines, processing complex spatial datasets, and optimizing regional infrastructure networks. This portfolio serves as a technical validation of my ability to deploy production-ready Python workflows and advanced GIS modeling to solve real-world operational bottlenecks."
+    "text": "I am an Agricultural Engineer & Geospatial Data Specialist with over a decade of experience designing automated data pipelines, processing complex spatial datasets, and optimizing regional infrastructure networks. This portfolio serves as a technical validation of my ability to deploy production-ready GIS workflows, advanced geographic modeling, and custom programming to solve real-world operational bottlenecks."
   },
   {
-    "objectID": "index.html#core-engineering-portfolio",
-    "href": "index.html#core-engineering-portfolio",
-    "title": "Alexis Araujo | Geospatial Data Science & AgTech Solutions",
-    "section": "Core Engineering Portfolio",
-    "text": "Core Engineering Portfolio\nThe following production-grade frameworks demonstrate my technical execution in spatial data science, web-mapping automation, and advanced geographic modeling:\n\nSpatial Infrastructure Optimization: Grain Storage Networks\n\nCore Competencies: Point-Pattern Analysis, Spatial Data Pipelines, Regional Resource Allocation.\nAnalytical Focus: An advanced geospatial framework that models grain storage capacities and regional density clusters to detect infrastructure deficits and optimize strategic resource allocation.\n\nDynamic Network Analytics: Multi-Commodity Supply Chains\n\nCore Competencies: Graph Theory Routing, NetworkX & OSMnx Frameworks, Kinetic Web-Mapping.\nAnalytical Focus: A mathematical routing model leveraging network analytics to simulate real-world transport corridors for key agricultural commodities. Features dynamic, tonnage-weighted visualizations to isolate supply chain bottlenecks and minimize logistics downtime.\n\nAdvanced Geographic Repositories & Automation Scripts Production-ready code architecture demonstrating full technical proficiency in pythonic automation (GeoPandas, Rasterio), spatial database design (PostGIS/SQL), and interactive visualization engineering.\n\n\nProfessional Credentials & Contact: Data-Driven LinkedIn Profile"
+    "objectID": "index.html#technical-core-portfolio",
+    "href": "index.html#technical-core-portfolio",
+    "title": "Alexis Araujo",
+    "section": "Technical Core Portfolio",
+    "text": "Technical Core Portfolio\nMy work is structured around the primary software suites and engineering methodologies driving the modern geospatial industry:\n\n🐍 Python & Spatial Data Science\nAdvanced scripting and mathematical modeling deployed to analyze infrastructure, optimize logistics, and automate massive datasets.\n\nSpatial Infrastructure Optimization: Grain Storage Networks\n\nCore Competencies: Point-Pattern Analysis, Spatial Data Pipelines, Regional Resource Allocation.\nAnalytical Focus: An advanced geospatial framework modeling grain storage capacities and regional density clusters to detect infrastructure deficits.\n\nDynamic Network Analytics: Multi-Commodity Supply Chains\n\nCore Competencies: Graph Theory Routing (NetworkX / OSMnx), Kinetic Web-Mapping.\nAnalytical Focus: A mathematical routing model simulating real-world transport corridors with dynamic, tonnage-weighted visualizations to isolate logistics bottlenecks.\n\n\n\n\n📐 QGIS Cartographic Engineering\nProduction-ready geographic layouts, vector processing, and institutional-grade map design conforming to rigorous spatial reference standards.\n\nRegional Soil Cartography & Classification (Venezuela) (Project documentation onboarding)\n\nAnalytical Focus: Processing complex categorical vector data (FAO-UNESCO DSMW) using precise regional datums (REGVEN) to design structural baselines for agricultural land-use planning.\n\n\n\n\n🏢 ArcGIS Enterprise Solutions\nEnterprise-level geographic systems, spatial analysis workflows, and cloud-based dashboard solutions tailored for corporate and institutional operations.\n\nTerrain Modeling & Hydrology Showcase (Project documentation onboarding)\n\nAnalytical Focus: Implementing raster analysis, digital elevation models (DEM), and hydrological routing tools to evaluate regional water flow and terrain suitability."
+  },
+  {
+    "objectID": "index.html#technical-stack-repositories",
+    "href": "index.html#technical-stack-repositories",
+    "title": "Alexis Araujo",
+    "section": "Technical Stack & Repositories",
+    "text": "Technical Stack & Repositories\n\nCore Languages & Libraries: Python (GeoPandas, Shapely, Rasterio, NetworkX, OSMnx), R.\nDesktop & Cloud GIS: QGIS Desktop, ArcGIS Pro, ArcGIS Online / Enterprise.\nDatabase Management: Spatial SQL, PostGIS.\nSource Control & Automation: Git, GitHub Actions, Quarto Markdown.\n\n\nProfessional Credentials & Contact: Data-Driven LinkedIn Profile"
   },
   {
     "objectID": "30daymapchallenge/day3_polygons_venezuela_soils/Venezuela_soil_clasification.html",

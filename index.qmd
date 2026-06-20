@@ -1,26 +1,48 @@
 ---
-title: "Alexis Araujo | Geospatial Data Science & AgTech Solutions"
-subtitle: "Engineering Advanced Spatial Analytics, Network Optimization & Python Automation"
+title: "Alexis Araujo"
+subtitle: "Agricultural Engineer & Geospatial Data Specialist"
 ---
 
 ## Professional Profile
 
-I am an **Agricultural Engineer & Geospatial Data Specialist** with over a decade of experience designing automated data pipelines, processing complex spatial datasets, and optimizing regional infrastructure networks. This portfolio serves as a technical validation of my ability to deploy production-ready Python workflows and advanced GIS modeling to solve real-world operational bottlenecks.
+I am an **Agricultural Engineer & Geospatial Data Specialist** with over a decade of experience designing automated data pipelines, processing complex spatial datasets, and optimizing regional infrastructure networks. This portfolio serves as a technical validation of my ability to deploy production-ready GIS workflows, advanced geographic modeling, and custom programming to solve real-world operational bottlenecks.
 
-## Core Engineering Portfolio
+---
 
-The following production-grade frameworks demonstrate my technical execution in spatial data science, web-mapping automation, and advanced geographic modeling:
+## Technical Core Portfolio
 
-* **[Spatial Infrastructure Optimization: Grain Storage Networks](python_portfolio/infrastructure_storage_optimization/day1_points_silos.html)**
-  * **Core Competencies:** Point-Pattern Analysis, Spatial Data Pipelines, Regional Resource Allocation.
-  * **Analytical Focus:** An advanced geospatial framework that models grain storage capacities and regional density clusters to detect infrastructure deficits and optimize strategic resource allocation.
-    
-* **[Dynamic Network Analytics: Multi-Commodity Supply Chains](python_portfolio/dynamic_network_analytics/day2_lines_antpath.html)**
-  * **Core Competencies:** Graph Theory Routing, NetworkX & OSMnx Frameworks, Kinetic Web-Mapping.
-  * **Analytical Focus:** A mathematical routing model leveraging network analytics to simulate real-world transport corridors for key agricultural commodities. Features dynamic, tonnage-weighted visualizations to isolate supply chain bottlenecks and minimize logistics downtime.
+My work is structured around the primary software suites and engineering methodologies driving the modern geospatial industry:
 
-* **[Advanced Geographic Repositories & Automation Scripts](https://github.com/alexisdaraujoc/alexisdaraujoc.github.io)**
-  Production-ready code architecture demonstrating full technical proficiency in pythonic automation (GeoPandas, Rasterio), spatial database design (PostGIS/SQL), and interactive visualization engineering.
+### 🐍 Python & Spatial Data Science
+Advanced scripting and mathematical modeling deployed to analyze infrastructure, optimize logistics, and automate massive datasets.
+
+*   **[Spatial Infrastructure Optimization: Grain Storage Networks](python_portfolio/infrastructure_storage_optimization/day1_points_silos.html)**
+    *   *Core Competencies:* Point-Pattern Analysis, Spatial Data Pipelines, Regional Resource Allocation.
+    *   *Analytical Focus:* An advanced geospatial framework modeling grain storage capacities and regional density clusters to detect infrastructure deficits.
+*   **[Dynamic Network Analytics: Multi-Commodity Supply Chains](python_portfolio/dynamic_network_analytics/day2_lines_antpath.html)**
+    *   *Core Competencies:* Graph Theory Routing (`NetworkX` / `OSMnx`), Kinetic Web-Mapping.
+    *   *Analytical Focus:* A mathematical routing model simulating real-world transport corridors with dynamic, tonnage-weighted visualizations to isolate logistics bottlenecks.
+
+### 📐 QGIS Cartographic Engineering
+Production-ready geographic layouts, vector processing, and institutional-grade map design conforming to rigorous spatial reference standards.
+
+*   **Regional Soil Cartography & Classification (Venezuela)** *(Project documentation onboarding)*
+    *   *Analytical Focus:* Processing complex categorical vector data (FAO-UNESCO DSMW) using precise regional datums (REGVEN) to design structural baselines for agricultural land-use planning.
+
+### 🏢 ArcGIS Enterprise Solutions
+Enterprise-level geographic systems, spatial analysis workflows, and cloud-based dashboard solutions tailored for corporate and institutional operations.
+
+*   **Terrain Modeling & Hydrology Showcase** *(Project documentation onboarding)*
+    *   *Analytical Focus:* Implementing raster analysis, digital elevation models (DEM), and hydrological routing tools to evaluate regional water flow and terrain suitability.
+
+---
+
+## Technical Stack & Repositories
+
+*   **Core Languages & Libraries:** Python (GeoPandas, Shapely, Rasterio, NetworkX, OSMnx), R.
+*   **Desktop & Cloud GIS:** QGIS Desktop, ArcGIS Pro, ArcGIS Online / Enterprise.
+*   **Database Management:** Spatial SQL, PostGIS.
+*   **Source Control & Automation:** Git, GitHub Actions, Quarto Markdown.
 
 ---
 *Professional Credentials & Contact: [Data-Driven LinkedIn Profile](https://www.linkedin.com/in/alexisdaraujoc)*
