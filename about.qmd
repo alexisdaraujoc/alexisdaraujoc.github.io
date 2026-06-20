@@ -1,9 +1,9 @@
 ---
 title: "About Me"
 image: images/profile.jpg
-image-width: 8em
+image-width: 9em
 about:
-  template: trestles
+  template: solana
   links:
     - icon: linkedin
       text: LinkedIn
