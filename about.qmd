@@ -1,13 +1,13 @@
 ---
 title: "About Me"
 image: images/profile.jpg
-image-width: 15em
+image-width: 8em
 about:
-  template: jolla
+  template: trestles
   links:
     - icon: linkedin
       text: LinkedIn
-      href: https://www.linkedin.com/in/alexisdaraujoc/?skipRedirect=true
+      href: https://www.linkedin.com/in/alexisdaraujo
     - icon: github
       text: GitHub
       href: https://github.com/alexisdaraujoc
@@ -19,11 +19,11 @@ about:
 ## Alexis Araujo
 **Agricultural Engineer & Geospatial Data Specialist**
 
-::: {style="text-align: left; max-width: 850px; margin: 0 auto;"}
+---
 
 ## Professional Journey
 
-I am a results-driven **Agricultural Engineer and Geospatial Data Specialist** with over a decade of hands-on experience driving spatial analysis, network modeling, and data automation across industrial, forestry, and agricultural sectors. My career is defined by a commitment to bridging the gap between field operations and cutting-edge geospatial technology—transforming complex datasets into production-grade pipelines, strategic geographic insights, and resilient logistical frameworks[cite: 1].
+I am a results-driven **Agricultural Engineer and Geospatial Data Specialist** with over a decade of hands-on experience driving spatial analysis, network modeling, and data automation across industrial, forestry, and agricultural sectors[cite: 1]. My career is defined by a commitment to bridging the gap between field operations and cutting-edge geospatial technology—transforming complex datasets into production-grade pipelines, strategic geographic insights, and resilient logistical frameworks[cite: 1].
 
 With a foundational background in Agronomy and Crop Science, my expertise has evolved into advanced Python-driven automation and multi-platform GIS solutions (QGIS & ArcGIS Pro), allowing me to streamline workflows and solve critical infrastructure bottlenecks at scale[cite: 1].
 
@@ -66,5 +66,3 @@ With a foundational background in Agronomy and Crop Science, my expertise has ev
     *University of Michigan (Coursera)*
 *   **Advanced GIS Certifications**  
     *Advanced technical training focusing on Python automation and professional GIS layout design.*
-
-:::
