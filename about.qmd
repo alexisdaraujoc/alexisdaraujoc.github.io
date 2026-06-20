@@ -1,40 +1,70 @@
 ---
 title: "About Me"
 image: images/profile.jpg
+image-width: 15em
 about:
   template: jolla
   links:
     - icon: linkedin
       text: LinkedIn
-      href: https://linkedin.com/in/yourprofile # Update with your link
+      href: https://www.linkedin.com/in/alexisdaraujo
     - icon: github
-      text: Github
+      text: GitHub
       href: https://github.com/alexisdaraujoc
+    - icon: envelope
+      text: Email
+      href: mailto:alexisdaraujoc@gmail.com
 ---
 
 ## Alexis Araujo
-**Agricultural Engineer | Geospatial Data Scientist | AgTech Automator**
+**Agricultural Engineer & Geospatial Data Specialist**
 
-::: {style="text-align: left; max-width: 800px; margin: 0 auto;"}
+::: {style="text-align: left; max-width: 850px; margin: 0 auto;"}
 
-I am a results-driven **Agricultural Engineer** with over a decade of experience in field operations and digital agriculture. My mission is to bridge the gap between traditional agronomy and modern data science by leveraging **Python**, **QGIS**, and **Geospatial Analysis** to optimize decision-making in the field.
+## Professional Journey
 
-### Technical Expertise
+I am a results-driven **Agricultural Engineer and Geospatial Data Specialist** with over a decade of hands-on experience driving spatial analysis, network modeling, and data automation across industrial, forestry, and agricultural sectors. My career is defined by a commitment to bridging the gap between field operations and cutting-edge geospatial technology—transforming complex datasets into production-grade pipelines, strategic geographic insights, and resilient logistical frameworks[cite: 1].
 
-* **Geospatial Analysis:** Expert in **QGIS**, **GeoPandas**, and **OSMnx** for infrastructure mapping and route optimization.
-* **Data Automation:** Specialized in streamlining agricultural data collection and processing using **Python** (Pandas, Folium, Matplotlib).
-* **Field Operations:** Extensive background in **Forestry Supervision** and **Crop Monitoring**, ensuring logistics and production targets are met with precision.
-
-### Professional Journey
-
-* **Agroescagüey Agricultural Production Unit (2017 – 2026):** Focused on implementing digital agriculture tools and automated data collection systems to enhance crop yields and monitoring efficiency.
-* **Terranova de Venezuela (2012 – 2016):** Supervised forest operations and timber logistics, managing complex geospatial planning for infrastructure development.
-
-### Education & Certifications
-
-* **Agricultural Engineering**
-* **Python for Everybody Specialization** – University of Michigan (Coursera)
-
-:::
+With a foundational background in Agronomy and Crop Science, my expertise has evolved into advanced Python-driven automation and multi-platform GIS solutions (QGIS & ArcGIS Pro), allowing me to streamline workflows and solve critical infrastructure bottlenecks at scale[cite: 1].
 
 ---
+
+## Technical Expertise & Core Competencies
+
+*   **Geospatial Software & Cloud Systems:** QGIS (Professional Certification), ArcGIS Pro, ArcGIS Online, Spatial Analysis, and Advanced Terrain Modeling[cite: 1].
+*   **Programming & Automation Pipelines:** Python, GeoPandas, Rasterio, Shapely, Scripting Automation, and Spatial Data Pipelines[cite: 1].
+*   **Data Analysis & Databases:** SQL (PostGIS), Advanced MS Excel (VBA, Power Query, Data Modeling), and complex Data Cleaning workflows[cite: 1].
+*   **Logistics & Infrastructure Oversight:** Network Routing Optimization, Fleet Coordination, and Critical Infrastructure Management[cite: 1].
+*   **Territorial Management & Compliance:** Cross-Functional Leadership, Stakeholder Relations, and International Regulations (FSC Audits)[cite: 1].
+*   **Languages:** Spanish (Native) | English (C1 Advanced - CEFR Fluent)[cite: 1].
+
+---
+
+## Highlighted Professional Experience
+
+### **Agronomist & Spatial Analyst** | Unidad de Producción Agroescagüey  
+*Mérida, Venezuela (09/2016 - 05/2026)*[cite: 1]  
+*   Analyzed soil geospatial data utilizing precision technologies to optimize regional resource allocation and agricultural inputs[cite: 1].
+*   Designed spatial monitoring models, processing complex datasets to evaluate high-level engineering interventions and regional sustainability[cite: 1].
+*   Optimized irrigation networks, water distribution infrastructure, and drainage systems through comprehensive terrain analysis and hydrologic modeling[cite: 1].
+*   Developed specialized technical curricula and led workshops focused on geospatial tools and Python automation scripting[cite: 1].
+
+### **Forestry Operations Supervisor** | Masisa  
+*Bolívar, Venezuela (02/2012 - 07/2016)*[cite: 1]  
+*   Directed complex field logistics and regional road networks, leveraging spatial data to optimize routing vectors and minimize operational downtime[cite: 1].
+*   Led infrastructure improvements and precise terrain modeling to ensure weather-resilient supply chain and hauling operations[cite: 1].
+*   Ensured 100% compliance with international standards, successfully clearing technical audits to maintain full FSC (Forest Stewardship Council) certification[cite: 1].
+*   Analyzed spatial performance metrics and geographic trends to drive strategic regional enhancements and asset allocation[cite: 1].
+
+---
+
+## Academic Background
+
+*   **Bachelor of Science: Agronomy and Crop Science** (10/2012)[cite: 1]  
+    *Instituto Universitario Politécnico "Santiago Mariño" — Mérida, Venezuela*[cite: 1]
+*   **Python for Everybody Specialization**  
+    *University of Michigan (Coursera)*
+*   **Advanced GIS Certifications**  
+    *Advanced technical training focusing on Python automation and professional GIS layout design.*
+
+:::
