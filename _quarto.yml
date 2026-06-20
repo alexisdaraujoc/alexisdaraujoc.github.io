@@ -12,24 +12,24 @@ website:
       - href: index.qmd
         text: "Home"
         
-      # PESTAÑA 1: Python & Spatial Data Science
-      - text: "Python & Spatial Data Science"
+      # PESTAÑA 1: Python (Nombre corto, despliega el enfoque avanzado)
+      - text: "Python GIS"
         menu:
           - text: "Spatial Infrastructure Optimization"
             href: python_portfolio/infrastructure_storage_optimization/infrastructure_storage_optimization.ipynb
           - text: "Dynamic Network Analytics"
             href: python_portfolio/dynamic_network_analytics/day2_lines_antpath.ipynb
           
-      # PESTAÑA 2: QGIS Cartographic Engineering
-      - text: "QGIS Cartographic Engineering"
+      # PESTAÑA 2: QGIS (Nombre corto, listo para el futuro)
+      - text: "QGIS"
         menu:
-          - text: "Regional Soil Classification (Venezuela)"
+          - text: "Regional Soil Cartography & Classification"
             href: index.qmd
 
-      # PESTAÑA 3: ArcGIS Enterprise Solutions
-      - text: "ArcGIS Enterprise Solutions"
+      # PESTAÑA 3: ArcGIS (Nombre corto, listo para el futuro)
+      - text: "ArcGIS"
         menu:
-          - text: "Terrain Modeling & Hydrology Showcase"
+          - text: "Enterprise Solutions & Terrain Modeling"
             href: index.qmd
 
       - href: about.qmd
