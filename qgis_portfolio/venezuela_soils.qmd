@@ -1,5 +1,5 @@
 ---
-title: "Regional Soil Cartography & Classification"
+title: "Venezuela Soil Cartography & Classification"
 subtitle: "Cartographic Engineering & Spatial Analysis using QGIS"
 ---
 
@@ -25,6 +25,4 @@ To convert the raw global data into an institutional-grade layout, the following
 ### 🖼️ Final Output
 The final high-resolution map layout demonstrates the successful synthesis of raw spatial data into an operational intelligence tool. 
 
-::: {.column-page}
-![Venezuela Soil Classification & Cartography](../images/venezuela_soils.png){fig-align="center" width="100%"}
-:::
+![Venezuela Soil Cartography & Classification](../images/venezuela_soils.png){fig-align="center" width="75%"}

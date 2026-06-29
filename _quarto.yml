@@ -20,10 +20,10 @@ website:
           - text: "Dynamic Network Analytics"
             href: python_portfolio/dynamic_network_analytics/day2_lines_antpath.ipynb
           
-      # PESTAÑA 2: QGIS Portfolio (¡Actualizado e integrado!)
+      # PESTAÑA 2: QGIS Portfolio
       - text: "QGIS"
         menu:
-          - text: "Regional Soil Cartography & Classification"
+          - text: "Venezuela Soil Cartography & Classification"
             href: qgis_portfolio/venezuela_soils.qmd
 
       # PESTAÑA 3: ArcGIS Portfolio
