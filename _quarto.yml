@@ -12,7 +12,7 @@ website:
       - href: index.qmd
         text: "Home"
         
-      # PESTAÑA 1: Python (Nombre corto, despliega el enfoque avanzado)
+      # PESTAÑA 1: Python Portfolio
       - text: "Python GIS"
         menu:
           - text: "Spatial Infrastructure Optimization"
@@ -20,13 +20,13 @@ website:
           - text: "Dynamic Network Analytics"
             href: python_portfolio/dynamic_network_analytics/day2_lines_antpath.ipynb
           
-      # PESTAÑA 2: QGIS (Nombre corto, listo para el futuro)
+      # PESTAÑA 2: QGIS Portfolio (¡Actualizado e integrado!)
       - text: "QGIS"
         menu:
           - text: "Regional Soil Cartography & Classification"
-            href: index.qmd
+            href: qgis_portfolio/venezuela_soils.qmd
 
-      # PESTAÑA 3: ArcGIS (Nombre corto, listo para el futuro)
+      # PESTAÑA 3: ArcGIS Portfolio
       - text: "ArcGIS"
         menu:
           - text: "Enterprise Solutions & Terrain Modeling"
