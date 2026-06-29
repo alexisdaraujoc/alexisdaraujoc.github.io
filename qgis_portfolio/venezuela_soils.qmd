@@ -25,4 +25,4 @@ To convert the raw global data into an institutional-grade layout, the following
 ### 🖼️ Final Output
 The final high-resolution map layout demonstrates the successful synthesis of raw spatial data into an operational intelligence tool. 
 
-![Venezuela Soil Cartography & Classification](../images/venezuela_soils.png){fig-align="center" width="75%"}
+![Venezuela Soil Cartography & Classification](../images/venezuela_soils.png){fig-align="center" width="65%"}
